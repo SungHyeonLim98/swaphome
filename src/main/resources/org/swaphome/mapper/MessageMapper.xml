@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+	PUBLIC "=//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.swaphome.mapper.MessageMapper">
+
+	<sql id="criteria">
+		<trim prefix="(" suffix=") AND " prefixOverrides="OR">
+			<foreach item='type' collection="typeArr">
+				<trim prefix="OR">
+					<choose>
+						<when test="type == 'N'.toString()">
+							name like '%'||#{keyword}||'%'
+						</when>
+						<when test="type == 'G'.toString()">
+							gnum like '%'||#{keyword}||'%'
+						</when>
+						<when test="type == 'T'.toString()">
+							title like '%'||#{keyword}||'%'
+						</when>
+						<when test="type == 'R'.toString()">
+							regdate like '%'||#{keyword}||'%'
+						</when>
+					</choose>
+				</trim>
+			</foreach>
+		</trim>
+	</sql>
+
+	<select id="getList" resultType="org.swaphome.domain.MessageVO">
+	<![CDATA[
+		select * from messages
+	]]>
+	</select>
+
+	<select id="read" resultType="org.swaphome.domain.MessageVO">
+	<![CDATA[
+		select * from messages where pnum = #{pnum}
+	]]>
+	</select>
+
+	<select id="getListWithPaging"
+		resultType="org.swaphome.domain.MessageVO">
+	<![CDATA[
+		select 
+			pnum, gnum, title, contents, name, regdate
+		from
+			( 
+			select /*+index_desc(messages pk_messages) */
+    			rownum rn, pnum, gnum, title, contents, name, regdate
+    		from
+        		messages
+    		where 
+	]]>
+	<include refid="criteria"></include> 
+      
+	<![CDATA[    
+	rownum <= #{pagenum} * #{amount}
+	)
+	where rn > (#{pagenum} -1) * #{amount}   
+	]]>
+	</select>
+
+	<select id="getTotalCount" resultType="int">
+	<![CDATA[
+		select count(*) from messages
+	]]>
+	</select>
+
+	<delete id="delete">
+		delete from messages where pnum = #{pnum}
+	</delete>
+
+	<insert id="insert">
+		insert into members(pnum, gnum, title, contents, name)
+		values (seq_message.nextval, #{gnum}, #{title}, #{contents}, #{name})
+	</insert>
+
+</mapper>

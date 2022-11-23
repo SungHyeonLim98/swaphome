@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+	PUBLIC "=//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.swaphome.mapper.MemberMapper">
+
+	<sql id="criteria">
+		<trim prefix="(" suffix=") AND " prefixOverrides="OR">
+			<foreach item='type' collection="typeArr">
+				<trim prefix="OR">
+					<choose>
+						<when test="type == 'N'.toString()">
+							name like '%'||#{keyword}||'%'
+						</when>
+						<when test="type == 'G'.toString()">
+							gnum like '%'||#{keyword}||'%'
+						</when>
+						<when test="type == 'R'.toString()">
+							grade like '%'||#{keyword}||'%'
+						</when>
+						<when test="type == 'C'.toString()">
+							cls like '%'||#{keyword}||'%'
+						</when>
+						<when test="type == 'P'.toString()">
+							phone like '%'||#{keyword}||'%'
+						</when>
+					</choose>
+				</trim>
+			</foreach>
+		</trim>
+	</sql>
+
+	<select id="getList" resultType="org.swaphome.domain.MemberVO">
+	<![CDATA[
+		select * from members
+	]]>
+	</select>
+
+	<select id="getListWithPaging"
+		resultType="org.swaphome.domain.MemberVO">
+	<![CDATA[
+		select 
+			mnum, name, gnum, grade, cls, phone
+		from
+			( 
+			select /*+index_desc(members pk_members) */
+    			rownum rn, mnum, name, gnum, grade, cls, phone
+    		from
+        		members
+    		where 
+	]]>
+	<include refid="criteria"></include> 
+      
+	<![CDATA[    
+	rownum <= #{pagenum} * #{amount}
+	)
+	where rn > (#{pagenum} -1) * #{amount}   
+	]]>
+	</select>
+
+	<select id="read" resultType="org.swaphome.domain.MemberVO">
+	<![CDATA[
+		select * from members where mnum = #{mnum}
+	]]>
+	</select>
+
+	<select id="getTotalCount" resultType="int">
+	<![CDATA[
+		select count(*) from members
+	]]>
+	</select>
+
+	<delete id="delete">
+		delete from members where mnum = #{mnum}
+	</delete>
+
+	<update id="update">
+		update members
+		set name = #{name},
+		gnum = #{gnum},
+		grade = #{grade},
+		cls = #{cls},
+		regnum = #{regnum},
+		phone = #{phone},
+		address = #{address},
+		academic = #{academic},
+		myself = #{myself},
+		motive = #{motive},
+		action = #{action},
+		advantages = #{advantages},
+		updateDate = sysdate
+		where mnum = #{mnum}
+	</update>
+
+	<insert id="insert">
+		insert into members(mnum, name, gnum, grade, cls, regNum,
+		phone, address, academic, myself, motive, action, advantages)
+		values (seq_member.nextval, #{name}, #{gnum}, #{grade}, #{cls},
+		#{regnum}, #{phone}, #{address}, #{academic}, #{myself}, #{motive},
+		#{action}, #{advantages})
+	</insert>
+
+	<insert id="insertSelectKey">
+
+		<selectKey keyProperty="mnum" order="BEFORE"
+			resultType="int">
+			select seq_member.nextval from dual
+		</selectKey>
+
+		insert into members(mnum, name, gnum, grade, cls, regnum,
+		phone, address, academic, myself, motive, action, advantages)
+		values (#{mnum}, #{name}, #{gnum}, #{grade}, #{cls},
+		#{regnum}, #{phone}, #{address}, #{academic}, #{myself}, #{motive},
+		#{action}, #{advantages})
+	</insert>
+
+</mapper>
