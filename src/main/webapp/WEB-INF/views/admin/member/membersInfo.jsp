@@ -96,19 +96,19 @@
 												<th>학년</th>
 												<th>반</th>
 												<th>전화번호</th>
-												<th>회원정보 조회</th>
+												<th>가입날짜</th>
 											</tr>
 										</thead>
 										<tbody>
 											<c:forEach items="${list}" var="member">
-												<tr>
+												<tr class='move'
+														id="<c:out value="${member.mnum}"/>">
 													<td><c:out value="${member.name}" /></td>
 													<td><c:out value="${member.gnum}" /></td>
 													<td><c:out value="${member.grade}" /></td>
 													<td><c:out value="${member.cls}" /></td>
 													<td><c:out value="${member.phone}" /></td>
-													<td><a class='move'
-														href="<c:out value="${member.mnum}"/>">조회</a></td>
+													<td><c:out value="${member.regdate}" /></td>
 												</tr>
 											</c:forEach>
 										</tbody>
@@ -184,7 +184,7 @@
 				e.preventDefault();
 				actionForm
 					.append("<input type='hidden' name='mnum' value='"
-						+ $(this).attr("href")
+						+ $(this).attr("id")
 						+ "'>");
 				actionForm.attr("action", "/admin/member/memberInfo");
 				actionForm.submit();

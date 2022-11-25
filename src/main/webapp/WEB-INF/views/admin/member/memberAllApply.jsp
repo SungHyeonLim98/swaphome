@@ -114,21 +114,40 @@
 						<div class="card card-primary card-outline">
 							<div class="card-header">
 								<h3 class="card-title">가입신청</h3>
-								
+								<div class="card-tools">
 									<div class="card-tools">
-										<div class="input-group input-group-sm">
-											<input type="text" class="form-control"
-												placeholder="Search Mail">
-											<div class="input-group-append">
-												<div class="btn btn-primary">
+										<form id='searchForm' action="/admin/member/memberAllApply"
+											method='get'>
+											<div class="input-group">
+												<select name='type'>
+													<option value=""
+														<c:out
+                                          value="${pageMaker.cri.type == null?'selected':''}" />>--</option>
+													<option value="N"
+														<c:out
+                                          value="${pageMaker.cri.type eq 'N'?'selected':''}" />>이름</option>
+													<option value="G"
+														<c:out
+                                          value="${pageMaker.cri.type eq 'G'?'selected':''}" />>학번</option>
+													<option value="R"
+														<c:out
+                                          value="${pageMaker.cri.type eq 'R'?'selected':''}" />>학년</option>
+												</select> <input type='text' class="form-control" name='keyword'
+													value='<c:out value="${pageMaker.cri.keyword}"/>' /> <input
+													type='hidden' name='pagenum'
+													value='<c:out value="${pageMaker.cri.pagenum}"/>' /> <input
+													type='hidden' name='amount'
+													value='<c:out value="${pageMaker.cri.amount}"/>' />
+												<div class='btn btn-primary'>
 													<i class="fas fa-search"></i>
 												</div>
 											</div>
-										</div>
+										</form>
 									</div>
 									<!-- /.card-tools -->
 								</div>
 								<!-- /.card-header -->
+								<br>
 								<div class="card-body p-0">
 									<div class="mailbox-controls">
 										<!-- Check all button -->
@@ -137,71 +156,43 @@
 											name="AllSelectbtn">
 											<i class="far fa-square"></i>
 										</button>
-										<div class="btn-group">
-											<button type="button" class="btn btn-default btn-sm"
-												name="DropRequestbtn">
-												<i class="far fa-trash-alt"></i>
-											</button>
-											<button type="button" class="btn btn-default btn-sm"
-												name="RePagebtn">
-												<i class="fas fa-reply"></i>
-											</button>
-											<button type="button" class="btn btn-default btn-sm"
-												name="ForwPagebtn">
-												<i class="fas fa-share"></i>
-											</button>
-										</div>
-										<!-- /.btn-group -->
+										<button type="button" class="btn btn-default btn-sm"
+											name="DropRequestbtn">
+											<i class="far fa-trash-alt"></i>
+										</button>
 										<button type="button" class="btn btn-default btn-sm"
 											name="ReplyPagebtn">
 											<i class="fas fa-sync-alt"></i>
 										</button>
-										<div class="float-right">
-											1-50/200
-											<div class="btn-group">
-												<button type="button" class="btn btn-default btn-sm"
-													name="Re50Data">
-													<i class="fas fa-chevron-left"></i>
-												</button>
-												<button type="button" class="btn btn-default btn-sm"
-													name="Forw50Data">
-													<i class="fas fa-chevron-right"></i>
-												</button>
-											</div>
-											<!-- /.btn-group -->
-										</div>
-										<!-- /.float-right -->
 									</div>
 									<div class="table-responsive mailbox-messages">
 										<table class="table table-hover table-striped">
 											<thead>
 												<!-- 동아리부원 가입신청 받기(단위:1명)-->
-												<tr name="CheckRequest">
+												<tr>
 													<td>
 														<div class="icheck-primary">
 															<input type="checkbox" value="" id="check1"
 																name="SelectRequest"> <label for="check1"></label>
 														</div>
 													</td>
-													<!--  얘 뭐임 <td class="mailbox-star"><a href="#"></a></td> -->
 													<td class="mailbox-name"><a href="#">이름(D)</a></td>
 													<td class="mailbox-subject"><b>학번</b></td>
 													<td class="mailbox-subject"><b>학년</b></td>
-													<!-- 얘 뭐임 <td class="mailbox-attachment"></td> -->
+													<td class="mailbox-subject"><b>반</b></td>
 													<td class="mailbox-date">보낸날짜</td>
-													<td class="mailbox-date">확인</td>
 												</tr>
 											</thead>
 											<tbody>
 												<c:forEach items="${list}" var="member">
-													<tr>
+													<tr class='move'
+														id="<c:out value="${member.gnum}"/>">
 														<td class="mailbox-star"><a href="#"></a></td>
 														<td><c:out value="${member.name}" /></td>
 														<td><c:out value="${member.gnum}" /></td>
 														<td><c:out value="${member.grade}" /></td>
+														<td><c:out value="${member.cls}" /></td>
 														<td><c:out value="${member.regdate}" /></td>
-														<td><a class='move'
-															href="<c:out value="${member.gnum}" />">확인</a></td>
 													</tr>
 												</c:forEach>
 											</tbody>
@@ -241,8 +232,10 @@
 		method='get'>
 		<input type='hidden' name='pagenum' value='${pageMaker.cri.pagenum}'>
 		<input type='hidden' name='amount' value='${pageMaker.cri.amount}'>
-		<input type='hidden' name='type' value='<c:out value="${ pageMaker.cri.type }"/>'> 
-		<input type='hidden' name='keyword' value='<c:out value="${ pageMaker.cri.keyword }"/>'>
+		<input type='hidden' name='type'
+			value='<c:out value="${ pageMaker.cri.type }"/>'> <input
+			type='hidden' name='keyword'
+			value='<c:out value="${ pageMaker.cri.keyword }"/>'>
 	</form>
 
 	<!-- Page specific script -->
@@ -314,7 +307,7 @@
 												actionForm
 														.append("<input type='hidden' name='gnum' value='"
 																+ $(this).attr(
-																		"href")
+																		"id")
 																+ "'>");
 												actionForm
 														.attr("action",

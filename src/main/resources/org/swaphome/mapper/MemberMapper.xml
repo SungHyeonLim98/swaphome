@@ -39,11 +39,11 @@
 	<select id="getListWithPaging" resultType="org.swaphome.domain.MemberVO">
 	<![CDATA[
 		select 
-			mnum, name, gnum, grade, cls, phone
+			mnum, name, gnum, grade, cls, phone, regdate
 		from
 			( 
 			select /*+index_desc(members pk_members) */
-    			rownum rn, mnum, name, gnum, grade, cls, phone
+    			rownum rn, mnum, name, gnum, grade, cls, phone, regdate
     		from
         		members
     		where 
