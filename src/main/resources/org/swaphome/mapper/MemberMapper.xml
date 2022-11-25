@@ -21,9 +21,6 @@
 						<when test="type == 'C'.toString()">
 							cls like '%'||#{keyword}||'%'
 						</when>
-						<when test="type == 'P'.toString()">
-							phone like '%'||#{keyword}||'%'
-						</when>
 					</choose>
 				</trim>
 			</foreach>

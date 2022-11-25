@@ -15,11 +15,11 @@
 						<when test="type == 'G'.toString()">
 							gnum like '%'||#{keyword}||'%'
 						</when>
-						<when test="type == 'T'.toString()">
-							title like '%'||#{keyword}||'%'
-						</when>
 						<when test="type == 'R'.toString()">
-							regdate like '%'||#{keyword}||'%'
+							grade like '%'||#{keyword}||'%'
+						</when>
+						<when test="type == 'C'.toString()">
+							cls like '%'||#{keyword}||'%'
 						</when>
 					</choose>
 				</trim>

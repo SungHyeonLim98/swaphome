@@ -118,30 +118,7 @@
 									<div class="card-tools">
 										<form id='searchForm' action="/admin/member/memberAllApply"
 											method='get'>
-											<div class="input-group">
-												<select name='type'>
-													<option value=""
-														<c:out
-                                          value="${pageMaker.cri.type == null?'selected':''}" />>--</option>
-													<option value="N"
-														<c:out
-                                          value="${pageMaker.cri.type eq 'N'?'selected':''}" />>이름</option>
-													<option value="G"
-														<c:out
-                                          value="${pageMaker.cri.type eq 'G'?'selected':''}" />>학번</option>
-													<option value="R"
-														<c:out
-                                          value="${pageMaker.cri.type eq 'R'?'selected':''}" />>학년</option>
-												</select> <input type='text' class="form-control" name='keyword'
-													value='<c:out value="${pageMaker.cri.keyword}"/>' /> <input
-													type='hidden' name='pagenum'
-													value='<c:out value="${pageMaker.cri.pagenum}"/>' /> <input
-													type='hidden' name='amount'
-													value='<c:out value="${pageMaker.cri.amount}"/>' />
-												<div class='btn btn-primary'>
-													<i class="fas fa-search"></i>
-												</div>
-											</div>
+											<%@ include file="../includes/memberSearchOption.jsp"%>
 										</form>
 									</div>
 									<!-- /.card-tools -->
