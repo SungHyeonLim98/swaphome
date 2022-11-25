@@ -71,7 +71,6 @@ label {
 								<td><b>학번</b></td>
 								<td><input type="text" name="gnum" class="form-control-sm"></td>
 								<td><b>학년</b></td>
-								<from name="memberSelectForm">
 								<td><select name="grade" class="from-control">
 										<option>1</option>
 										<option>2</option>
@@ -85,7 +84,6 @@ label {
 										<option>C</option>
 										<option>D</option>
 								</select></td>
-								</from>
 							</tr>
 							<tr>
 								<td><b>주민번호</b></td>

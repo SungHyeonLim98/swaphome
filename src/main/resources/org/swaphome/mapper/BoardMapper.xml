@@ -24,21 +24,20 @@
 		</trim>
 	</sql>
 
-	<select id="getList" resultType="org.swaphome.mapper.BoardMapper">
+	<select id="getList" resultType="org.swaphome.domain.BoardVO">
 	<![CDATA[
 		select * from board
 	]]>
 	</select>
 
-	<select id="getListWithPaging"
-		resultType="org.swaphome.mapper.BoardMapper">
+	<select id="getListWithPaging" resultType="org.swaphome.domain.BoardVO">
 	<![CDATA[
 		select 
-			bno, title, contents, writer, regdate, updatedate
+			bno, title, contents, writer, category, regdate, updatedate
 		from
 			( 
 			select /*+index_desc(board pk_board) */
-    			rownum rn, bno, title, contents, writer, regdate, updatedate
+    			rownum rn, bno, title, contents, writer, category, regdate, updatedate
     		from
         		board
     		where 
@@ -52,7 +51,7 @@
 	]]>
 	</select>
 
-	<select id="read" resultType="org.swaphome.mapper.BoardMapper">
+	<select id="read" resultType="org.swaphome.domain.BoardVO">
 	<![CDATA[
 		select * from board where bno = #{bno}
 	]]>
@@ -87,8 +86,8 @@
 	</update>
 
 	<insert id="insert">
-		insert into members(bno, title, contents, writer)
-		values (seq_board.nextval, #{title}, #{contents}, #{writer})
+		insert into board(bno, title, contents, writer, category)
+		values (seq_board.nextval, #{title}, #{contents}, #{writer}, #{category)
 	</insert>
 
 	<insert id="insertSelectKey">
@@ -98,8 +97,8 @@
 			select seq_board.nextval from dual
 		</selectKey>
 
-		insert into members(bno, tltle, contents, writer)
-		values (#{bno}, #{tltle}, #{contents}, #{writer})
+		insert into board(bno, title, contents, writer, category)
+		values (#{bno}, #{title}, #{contents}, #{writer}, #{category})
 	</insert>
 
 </mapper>

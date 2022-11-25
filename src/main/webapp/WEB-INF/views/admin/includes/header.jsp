@@ -28,7 +28,7 @@
         <!-- Add icons to the links using the .nav-icon class
              with font-awesome or any other icon font library -->
         <li class="nav-item">
-          <a href="/admin/member/membersInfo" name="memberManagePageNav" class="nav-link">
+          <a href="/admin/member/membersInfo" class="nav-link">
             <i class="nav-icon fas fa-users"></i>
             <p>
               회원 정보 관리
@@ -36,7 +36,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a href="/admin/member/memberAllMessage" name="memberAlarmNav" class="nav-link">
+          <a href="/admin/member/memberAllMessage" class="nav-link">
             <i class="nav-icon far fa-envelope"></i>
             <p>
               회원 소식
@@ -44,7 +44,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a href="/admin/board/posting" name="boradManageNav" class="nav-link">
+          <a href="/admin/board/postsInfo" class="nav-link">
             <i class="nav-icon far fa-image"></i>
             <p>
               게시글 관리
