@@ -3,6 +3,8 @@ package org.swaphome.controller;
 import org.swaphome.domain.*;
 import org.swaphome.service.*;
 
+import java.util.List;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,6 +31,8 @@ public class AdminController {
 	private ReqMemberService reqService;
 	@Setter(onMethod_ = { @Autowired })
 	private MessageService msService;
+	@Setter(onMethod_ = { @Autowired })
+	private BoardService boService;
 	
 	// Login
 	@GetMapping("/login")
@@ -129,6 +133,29 @@ public class AdminController {
 	public void posting() {
 		
 		log.info("PostingPage");
+	}
+	
+	@GetMapping("/board/postsInfo")
+	public void postsInfo(Criteria cri, Model model) {
+		
+		log.info("PostsInfoPage");
+		
+		int total = boService.getTotal(cri);
+		
+		log.info("total : " + total);
+		
+		model.addAttribute("pageMaker", new PageDTO(cri, total));
+
+		model.addAttribute("list", boService.getList(cri));
+	}
+	
+	@GetMapping({"/board/postInfo", "/board/postModify"})
+	public void postInfo(@RequestParam("bno") int bno, @ModelAttribute("cri")
+		Criteria cri, Model model) {
+		
+		log.info("BoardInfoPage");
+		
+		model.addAttribute("board", boService.get(bno));
 
 	}
 	
@@ -147,6 +174,18 @@ public class AdminController {
 		reqService.remove(member.getGnum());
 
 		rttr.addFlashAttribute("result", member.getMnum());
+		
+		return "redirect:/admin/member/memberAllApply";
+	}
+	
+	@PostMapping("/boardRegister")
+	public String boardRegister(BoardVO board, RedirectAttributes rttr) {
+		
+		log.info("register: " + board);
+		
+		boService.register(board);
+
+		rttr.addFlashAttribute("result", board.getBno());
 		
 		return "redirect:/admin/member/memberAllApply";
 	}

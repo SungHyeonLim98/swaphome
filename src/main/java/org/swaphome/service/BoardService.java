@@ -3,8 +3,10 @@ package org.swaphome.service;
 import java.util.List;
 
 import org.swaphome.domain.Criteria;
+import org.springframework.stereotype.Service;
 import org.swaphome.domain.BoardVO;
 
+@Service
 public interface BoardService {
 
 	public void register(BoardVO board);
