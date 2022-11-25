@@ -47,12 +47,13 @@
               <!-- /.card-header -->
               <div class="card-body">
                 <div class="form-group">
-                    <select name="categoty" class="from-control" style="margin-bottom: 15px; padding: 5px 7px 3px 7px; font-size:15px;">
-                      <option value="none" hidden selected>게시글 선택</option>
-                      <option value="notice">공지사항</option>
-                      <option value="activity">활동 게시판</option>
-                      <option value="promotion">홍보 게시판</option>
+                    <select name="category" class="from-control" style="margin-bottom: 15px; padding: 5px 7px 3px 7px; font-size:15px;">
+                      <option hidden selected>게시글 선택</option>
+                      <option>공지사항</option>
+                      <option>활동 게시판</option>
+                      <option>홍보 게시판</option>
                     </select>
+                  <input type='hidden' name='writer' value='Admin'>
                   <input name='title' class="form-control" placeholder="제목:">
                 </div>
                 <div class="form-group">
@@ -665,8 +666,8 @@
               <!-- /.card-body -->
               <div class="card-footer">
                 <div class="float-right">
-                  <button type="button" style='font-size:15px;' name="boardModifyBtn" class="btn btn-default"><i class="fas fa-pencil-alt"></i> 수정</button>
-                  <button type="submit" style='font-size:15px;' name="boardRemoveBtn" class="btn btn-primary"><i class="far fa-envelope"></i> 전송</button>
+                  <button type="button" style='font-size:15px;' class="btn btn-default"><i class="fas fa-pencil-alt"></i> 수정</button>
+                  <button type="submit" style='font-size:15px;' class="btn btn-primary"><i class="far fa-envelope"></i> 전송</button>
                 </div>
               </div>
               <!-- /.card-footer -->
