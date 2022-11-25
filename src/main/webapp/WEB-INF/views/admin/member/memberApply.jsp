@@ -312,13 +312,13 @@
 														<div class="float-right">
 
 															<button type="submit" class="btn btn-primary">
-																<i class="far fa-envelope" name="Applybtn"></i>
+																<i class="far fa-envelope"></i>
 																&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;수
 																락&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 															</button>
 															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 															<button type="submit" class="btn btn-primary">
-																<i class="far fa-envelope" name="Refusalbtn"></i>
+																<i class="far fa-envelope"></i>
 																&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;거
 																절&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 															</button>

@@ -117,29 +117,7 @@
 
 										<form id='searchForm' action="/admin/member/memberAllMessage"
 											method='get'>
-											<select name='type'>
-												<option value=""
-													<c:out
-													value="${pageMaker.cri.type == null?'selected':''}" />>--</option>
-												<option value="N"
-													<c:out
-													value="${pageMaker.cri.type eq 'N'?'selected':''}" />>이름</option>
-												<option value="G"
-													<c:out
-													value="${pageMaker.cri.type eq 'G'?'selected':''}" />>학번</option>
-												<option value="T"
-													<c:out
-													value="${pageMaker.cri.type eq 'R'?'selected':''}" />>제목</option>
-												<option value="R"
-													<c:out
-													value="${pageMaker.cri.type eq 'R'?'selected':''}" />>보낸날짜</option>
-											</select> <input type='text' name='keyword'
-												value='<c:out value="${pageMaker.cri.keyword}"/>' /> <input
-												type='hidden' name='pagenum'
-												value='<c:out value="${pageMaker.cri.pagenum}"/>' /> <input
-												type='hidden' name='amount'
-												value='<c:out value="${pageMaker.cri.amount}"/>' />
-											<button class='btn btn-default'>Search</button>
+											<%@ include file="../includes/memberSearchOption.jsp"%>
 										</form>
 									</div>
 									<div class="card-tools">
@@ -210,10 +188,12 @@
 																name="SelectRequest"> <label for="check1"></label>
 														</div>
 													</td>
-													<td class="mailbox-name"><a href="#">동아리부원(D)</a></td>
+													<td class="mailbox-name"><a href="#">이름(D)</a></td>
 													<td class="mailbox-subject"><b>학번</b></td>
+													<td class="mailbox-subject"><b>학년</b></td>
+													<td class="mailbox-subject"><b>반</b></td>
 													<td class="mailbox-subject"><b>쪽지 제목</b></td>
-													<td class="mailbox-date">5 mins ago(보낸날짜 D)</td>
+													<td class="mailbox-date">보낸날짜</td>
 												</tr>
 											</thead>
 											<tbody>
@@ -222,10 +202,10 @@
 														<td class="mailbox-star"><a href="#"></a></td>
 														<td><c:out value="${message.name}" /></td>
 														<td><c:out value="${message.gnum}" /></td>
+														<td><c:out value="${message.grade}" /></td>
+														<td><c:out value="${message.cls}" /></td>
 														<td><c:out value="${message.title}" /></td>
 														<td><c:out value="${message.regdate}" /></td>
-														<td><a class='move'
-															href="<c:out value="${message.pnum}" />">확인</a></td>
 													</tr>
 												</c:forEach>
 											</tbody>

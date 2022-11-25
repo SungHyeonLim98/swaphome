@@ -18,6 +18,9 @@
 						<when test="type == 'R'.toString()">
 							grade like '%'||#{keyword}||'%'
 						</when>
+						<when test="type == 'C'.toString()">
+							cls like '%'||#{keyword}||'%'
+						</when>
 					</choose>
 				</trim>
 			</foreach>
