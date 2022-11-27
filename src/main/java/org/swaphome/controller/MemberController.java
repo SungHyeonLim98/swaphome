@@ -30,6 +30,30 @@ public class MemberController {
 		return "member/registerTest";
 	}
 	
+	@GetMapping("/board/activityBoard")
+	public void activityBoard() {
+
+		log.info("ActivityBoardPage");
+	}
+	
+	@GetMapping("/board/activityBoardDetail")
+	public void activityBoardDetail() {
+
+		log.info("ActivityBoardDetailPage");
+	}
+	
+	@GetMapping("/board/promoBoard")
+	public void promoBoard() {
+
+		log.info("PromoBoardPage");
+	}
+	
+	@GetMapping("/board/promoBoardDetail")
+	public void promoBoardDetail() {
+
+		log.info("PromoBoardDetailPage");
+	}
+	
 	// CRUD
 	@PostMapping("/member/register")
 	public String register(ReqMemberVO member, RedirectAttributes rttr) {

@@ -53,7 +53,7 @@
 			<section class="content">
 				<div class="row">
 					<div class="col-md-3">
-						<div class="card">
+						<div class="card card-primary card-outline">
 							<div class="card-header">
 								<h3 class="card-title">가입신청서</h3>
 
@@ -80,7 +80,7 @@
 							<!-- /.card-body -->
 						</div>
 						<!-- /.card -->
-						<div class="card">
+						<div class="card card-primary card-outline">
 							<div class="card-header">
 								<h3 class="card-title">쪽지</h3>
 
@@ -111,29 +111,16 @@
 						<div class="card card-primary card-outline">
 							<div class="card-header">
 								<h3 class="card-title">쪽지</h3>
-
-								<div class='row'>
-									<div class="col-lg-12">
-
+								<div class='card-tools'>
+									<div class="card-tools">
 										<form id='searchForm' action="/admin/member/memberAllMessage"
 											method='get'>
 											<%@ include file="../includes/memberSearchOption.jsp"%>
 										</form>
 									</div>
-									<div class="card-tools">
-										<div class="input-group input-group-sm">
-											<input type="text" class="form-control"
-												placeholder="Search Mail" name="Search Request">
-											<div class="input-group-append">
-												<div class="btn btn-primary">
-													<i class="fas fa-search"></i>
-												</div>
-											</div>
-										</div>
-									</div>
-									<!-- /.card-tools -->
 								</div>
 								<!-- /.card-header -->
+								<br>
 								<div class="card-body p-0">
 									<div class="mailbox-controls">
 										<!-- Check all button -->
@@ -142,40 +129,14 @@
 											name="AllSelectbtn">
 											<i class="far fa-square"></i>
 										</button>
-										<div class="btn-group">
-											<button type="button" class="btn btn-default btn-sm"
-												name="DropRequestbtn">
-												<i class="far fa-trash-alt"></i>
-											</button>
-											<button type="button" class="btn btn-default btn-sm"
-												name="RePagebtn">
-												<i class="fas fa-reply"></i>
-											</button>
-											<button type="button" class="btn btn-default btn-sm"
-												name="ForwPagebtn">
-												<i class="fas fa-share"></i>
-											</button>
-										</div>
-										<!-- /.btn-group -->
+										<button type="button" class="btn btn-default btn-sm"
+											name="DropRequestbtn">
+											<i class="far fa-trash-alt"></i>
+										</button>
 										<button type="button" class="btn btn-default btn-sm"
 											name="ReplyPagebtn">
 											<i class="fas fa-sync-alt"></i>
 										</button>
-										<div class="float-right">
-											1-50/200
-											<div class="btn-group">
-												<button type="button" class="btn btn-default btn-sm"
-													name="Re50Data">
-													<i class="fas fa-chevron-left"></i>
-												</button>
-												<button type="button" class="btn btn-default btn-sm"
-													name="Forw50Data">
-													<i class="fas fa-chevron-right"></i>
-												</button>
-											</div>
-											<!-- /.btn-group -->
-										</div>
-										<!-- /.float-right -->
 									</div>
 									<div class="table-responsive mailbox-messages">
 										<table class="table table-hover table-striped">
@@ -198,7 +159,8 @@
 											</thead>
 											<tbody>
 												<c:forEach items="${list}" var="message">
-													<tr>
+													<tr class='move'
+														id="<c:out value="${message.pnum}"/>">
 														<td class="mailbox-star"><a href="#"></a></td>
 														<td><c:out value="${message.name}" /></td>
 														<td><c:out value="${message.gnum}" /></td>
@@ -320,7 +282,7 @@
 												actionForm
 														.append("<input type='hidden' name='pnum' value='"
 																+ $(this).attr(
-																		"href")
+																		"id")
 																+ "'>");
 												actionForm
 														.attr("action",

@@ -55,7 +55,7 @@
 					<div class="col-md-3">
 
 
-						<div class="card">
+						<div class="card card-primary card-outline">
 							<div class="card-header">
 								<h3 class="card-title">가입신청서</h3>
 
@@ -82,7 +82,7 @@
 							<!-- /.card-body -->
 						</div>
 						<!-- /.card -->
-						<div class="card">
+						<div class="card card-primary card-outline">
 							<div class="card-header">
 								<h3 class="card-title">쪽지</h3>
 
@@ -121,9 +121,8 @@
 											<%@ include file="../includes/memberSearchOption.jsp"%>
 										</form>
 									</div>
-									<!-- /.card-tools -->
 								</div>
-								<!-- /.card-header -->
+									<!-- /.card-tools -->
 								<br>
 								<div class="card-body p-0">
 									<div class="mailbox-controls">

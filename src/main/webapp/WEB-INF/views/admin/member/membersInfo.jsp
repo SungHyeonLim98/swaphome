@@ -26,6 +26,12 @@
 	href="/resources/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
 <!-- Theme style -->
 <link rel="stylesheet" href="/resources/dist/css/adminlte.min.css">
+<style>
+.search-form {
+	margin-top: 7px;
+	margin-left: 15px;
+}
+</style>
 </head>
 <body class="hold-transition sidebar-mini">
 	<div class="wrapper">
@@ -37,9 +43,13 @@
 			<section class="content-header">
 				<div class="container-fluid">
 					<div class="row mb-2">
-						<div class="col-sm-6"></div>
+						<div class="col-sm-6">
+							<h1>회원 정보 관리</h1>
+						</div>
 						<div class="col-sm-6">
 							<ol class="breadcrumb float-sm-right">
+								<li class="breadcrumb-item"><a href="#">회원 정보 관리</a></li>
+								<li class="breadcrumb-item active">동아리원 관리</li>
 							</ol>
 						</div>
 					</div>
@@ -52,12 +62,12 @@
 				<div class="container-fluid">
 					<div class="row">
 						<div class="col-12">
-							<div class="card">
+							<div class="card card-primary card-outline">
 								<div class="card-header">
 									<h3 class="card-title">동아리원 관리</h3>
 								</div>
 								<div class='row'>
-									<div class="col-lg-12">
+									<div class="col-lg-12 search-form">
 
 										<form id='searchForm' action="/admin/member/membersInfo"
 											method='get'>
@@ -117,12 +127,6 @@
 		</div>
 		<!-- /.content-wrapper -->
 		<footer class="main-footer">
-			<div class="float-right d-none d-sm-block">
-				<b>Version</b> 3.2.0
-			</div>
-			<strong>Copyright &copy; 2014-2021 <a
-				href="https://adminlte.io">AdminLTE.io</a>.
-			</strong> All rights reserved.
 		</footer>
 
 		<!-- Control Sidebar -->
