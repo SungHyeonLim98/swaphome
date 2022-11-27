@@ -29,11 +29,6 @@ label {
 	display: block;
 	margin-bottom: 10px;
 }
-
-kbtnSize {
-	width: 150px;
-	height: 40px;
-}
 </style>
 <!-- Google Font: Source Sans Pro -->
 <link rel="stylesheet"
@@ -48,7 +43,6 @@ kbtnSize {
 <body class="hold-transition sidebar-mini">
 	<div class="wrapper">
 		<%@ include file="../includes/header.jsp"%>
-
 		<!-- Content Wrapper. Contains page content -->
 		<div class="content-wrapper">
 			<!-- Content Header (Page header) -->
@@ -57,13 +51,21 @@ kbtnSize {
 					<div class="row mb-2">
 						<div class="col-sm-6">
 							<h1>
-								<b>회원정보</b>
-							</h1>
+								회원정보
+								<h1>
+						</div>
+						<div class="col-sm-6">
+							<ol class="breadcrumb float-sm-right">
+								<li class="breadcrumb-item"><a href="#">회원 정보 관리</a></li>
+								<li class="breadcrumb-item"><a href="#">동아리원 관리</a></li>
+								<li class="breadcrumb-item active">회원정보</li>
+							</ol>
 						</div>
 					</div>
 				</div>
 				<!-- /.container-fluid -->
 			</section>
+			<div class="card-header"></div>
 			<div class="card-body">
 				<table id="example2"
 					class="table table-bordered table-striped text-center">
@@ -94,91 +96,67 @@ kbtnSize {
 						</form>
 					</tbody>
 				</table>
-			</div>
-			<table class="table text-center">
-				<div class="card-body row">
+				<table>
 					<tr>
 						<td>
-							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						</td>
-						<td><a
-							href="/admin/member/membersInfo?pagenum=<c:out value='${cri.pagenum}'/>&amount=<c:out value='${cri.amount}' />">
-								<button type="button" name="memberSaveBtn"
-									class="btn btn-block btn-outline-secondary"
-									style="width: 150px; height: 40px;">목록으로</button>
-						</a></td>
-						<td>
-							<button data-oper='modify' type="button"
-								class="btn btn-block btn-outline-secondary"
-								style="width: 150px; height: 40px;">회원정보 수정</button>
-							<form id='operForm' action="/admin/member/memberModify"
-								method="get">
-								<input type='hidden' id='mnum' name='mnum'
-									value='<c:out value="${member.mnum}"/>'> <input
-									type='hidden' id='pagenum' name='pagenum'
-									value='<c:out value="${cri.pagenum}"/>'> <input
-									type='hidden' id='amount' name='amount'
-									value='<c:out value="${cri.amount}"/>'> <input
-									type='hidden' id='keyword' name='keyword'
-									value='<c:out value="${cri.keyword}"/>'> <input
-									type='hidden' id='type' name='type'
-									value='<c:out value="${cri.type}"/>'>
-							</form>
+							<h6 style="margin-top: 20px;">자기소개</h6>
 						</td>
 						<td>
-							<form
-								action="/admin/remove?mnum=<c:out value='${member.mnum}' />"
-								method="POST">
-
-								<button type="submit"
-									class="btn btn-block btn-outline-secondary"
-									style="width: 150px; height: 40px;">회원정보 삭제</button>
-							</form>
+							<h6 style="margin-top: 20px; margin-left: 40px;">지원동기</h6>
 						</td>
-						<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
 					</tr>
+					<tr>
+						<td><textarea rows="5" cols="70" readonly><c:out
+									value="${member.myself}" /></textarea></td>
+						<td><textarea rows="5" cols="70" style="margin-left: 40px"
+								readonly><c:out value="${member.motive}" /></textarea></td>
+					</tr>
+					<tr>
+						<td>
+							<h6 style="margin-top: 20px;">동아리에서 하고싶은 활동</h6>
+						</td>
+						<td>
+							<h6 style="margin-top: 20px; margin-left: 40px;">자신의 장점</h6>
+						</td>
+					</tr>
+					<tr>
+						<td><textarea rows="5" cols="70" readonly><c:out
+									value="${member.action}" /></textarea></td>
+						<td><textarea rows="5" cols="70" style="margin-left: 40px"
+								readonly><c:out value="${member.advantages}" /></textarea></td>
+					</tr>
+				</table>
+				<div class="p-0 float-right mt-2">
+					<div class="btn-group">
+						<a
+							href="/admin/member/membersInfo?pagenum=<c:out value='${cri.pagenum}'/>&amount=<c:out value='${cri.amount}' />">
+							<button type="reset" class="btn btn-outline-secondary"
+								style="width: 150px; height: 40px;">목록으로</button>
+						</a>
+						<button data-oper='modify' type="submit"
+							class="btn btn-outline-secondary"
+							style="width: 150px; height: 40px;">회원정보 수정</button>
+						<form id='operForm' action="/admin/member/memberModify"
+							method="get">
+							<input type='hidden' id='mnum' name='mnum'
+								value='<c:out value="${member.mnum}"/>'> <input
+								type='hidden' id='pagenum' name='pagenum'
+								value='<c:out value="${cri.pagenum}"/>'> <input
+								type='hidden' id='amount' name='amount'
+								value='<c:out value="${cri.amount}"/>'> <input
+								type='hidden' id='keyword' name='keyword'
+								value='<c:out value="${cri.keyword}"/>'> <input
+								type='hidden' id='type' name='type'
+								value='<c:out value="${cri.type}"/>'>
+						</form>
+						<form action="/admin/remove?mnum=<c:out value='${member.mnum}' />"
+							method="POST">
+							<button type="submit" class="btn btn-outline-secondary"
+								style="width: 150px; height: 40px;">회원정보 삭제</button>
+						</form>
+					</div>
 				</div>
-			</table>
-			<table>
-				<tr>
-					<td>
-						<h6 style="margin-left: 40px;">자기소개</h6>
-					</td>
-					<td>
-						<h6 style="margin-left: 80px;">지원동기</h6>
-					</td>
-				</tr>
-				<tr>
-					<td><textarea rows="5" cols="70" style="margin-left: 30px"
-							readonly>
-							<c:out value="${member.myself}" />
-          			</textarea></td>
-					<td><textarea rows="5" cols="70" style="margin-left: 70px"
-							readonly>
-							<c:out value="${member.motive}" />
-          			</textarea></td>
-				</tr>
-				<tr>
-					<td>
-						<h6 style="margin-top: 20px; margin-left: 40px;">동아리에서 하고싶은
-							활동</h6>
-					</td>
-					<td>
-						<h6 style="margin-top: 20px; margin-left: 80px;">자신의 장점</h6>
-					</td>
-				</tr>
-				<tr>
-					<td><textarea rows="5" cols="70" style="margin-left: 30px"
-							readonly>
-							<c:out value="${member.action}" />
-          			</textarea></td>
-
-					<td><textarea rows="5" cols="70" style="margin-left: 70px"
-							readonly>
-							<c:out value="${member.advantages}" />
-          			</textarea></td>
-				</tr>
-			</table>
+			</div>
 			<!-- /.content -->
 		</div>
 		<!-- /.content-wrapper -->

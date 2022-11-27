@@ -52,9 +52,15 @@ label {
 				<div class="container-fluid">
 					<div class="row mb-2">
 						<div class="col-sm-6">
-							<h1>
-								<b>회원정보</b>
-							</h1>
+							<h1>회원정보 수정<h1>
+						</div>
+						<div class="col-sm-6">
+							<ol class="breadcrumb float-sm-right">
+								<li class="breadcrumb-item"><a href="#">회원 정보 관리</a></li>
+								<li class="breadcrumb-item"><a href="#">동아리원 관리</a></li>
+								<li class="breadcrumb-item"><a href="#">회원정보</a></li>
+								<li class="breadcrumb-item active">회원정보 수정</li>
+							</ol>
 						</div>
 					</div>
 				</div>
@@ -66,16 +72,16 @@ label {
 						class="table table-bordered table-striped text-center">
 						<tbody>
 							<tr>
-								<input type="hidden"
-									value=<c:out value="${member.mnum}" /> name="mnum">
-								<input type="hidden"
-									value=<c:out value="${cri.pagenum}" /> name="pagenum">
-								<input type="hidden"
-									value=<c:out value="${cri.amount}" /> name="amount">
-								<input type="hidden"
-									value=<c:out value="${cri.type}" /> name="type">
-								<input type="hidden"
-									value=<c:out value="${cri.keyword}" /> name="keyword">
+								<input type="hidden" value=<c:out value="${member.mnum}" />
+									name="mnum">
+								<input type="hidden" value=<c:out value="${cri.pagenum}" />
+									name="pagenum">
+								<input type="hidden" value=<c:out value="${cri.amount}" />
+									name="amount">
+								<input type="hidden" value=<c:out value="${cri.type}" />
+									name="type">
+								<input type="hidden" value=<c:out value="${cri.keyword}" />
+									name="keyword">
 								<td><b>이름</b></td>
 								<td><input type="text"
 									value=<c:out value="${member.name}" /> name="name"
@@ -130,76 +136,55 @@ label {
 							</tr>
 						</tbody>
 					</table>
-				</div>
-				<table class="table text-center">
-					<div class="card-body row">
+					<table>
 						<tr>
 							<td>
-								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								<h6 style="margin-top: 20px;">자기소개</h6>
 							</td>
 							<td>
-								<button type="reset" class="btn btn-block btn-outline-secondary"
-									style="width: 150px; height: 40px;">초기화</button>
+								<h6 style="margin-top: 20px; margin-left: 40px;">지원동기</h6>
 							</td>
-							<td>
-								<Button type="submit"
-									class="btn btn-block btn-outline-secondary"
-									style="width: 150px; height: 40px;">저장</Button>
-							</td>
-							<td>
-								<button type="button"
-									class="btn btn-block btn-outline-secondary"
-									style="width: 150px; height: 40px;">정보 삭제</button>
-							</td>
-							<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
 						</tr>
+						<tr>
+							<td><textarea name="myself" rows="5" cols="70"
+									class="form-control"><c:out value="${member.myself}" /></textarea></td>
+							<td><textarea name="motive" rows="5" cols="70"
+									class="form-control" style="margin-left: 40px"><c:out
+										value="${member.motive}" /></textarea></td>
+						</tr>
+						<tr>
+							<td>
+								<h6 style="margin-top: 20px;">동아리에서 하고싶은 활동</h6>
+							</td>
+							<td>
+								<h6 style="margin-top: 20px; margin-left: 40px;">자신의 장점</h6>
+							</td>
+						</tr>
+						<tr>
+							<td><textarea name="action" rows="5" cols="70"
+									class="form-control"><c:out value="${member.action}" /></textarea></td>
+							<td><textarea name="advantages" rows="5" cols="70"
+									class="form-control" style="margin-left: 40px"><c:out
+										value="${member.advantages}" /></textarea></td>
+						</tr>
+					</table>
+					<div class="p-0 float-right mt-2">
+						<div class="btn-group">
+							<button type="reset" class="btn btn-outline-secondary"
+								style="width: 150px; height: 40px;">초기화</button>
+							<button type="submit" class="btn btn-outline-secondary"
+								style="width: 150px; height: 40px;">저장</button>
+							<button type="button" class="btn btn-outline-secondary"
+								style="width: 150px; height: 40px;">정보 삭제</button>
+						</div>
 					</div>
-				</table>
-
-				<table>
-					<tr>
-						<td>
-							<h6 style="margin-top: 20px; margin-left: 40px;">자기소개</h6>
-						</td>
-						<td>
-							<h6 style="margin-top: 20px; margin-left: 80px;">지원동기</h6>
-						</td>
-					</tr>
-					<tr>
-						<td><textarea name="myself" rows="5" cols="70"
-								class="form-control" style="margin-left: 30px">
-            	<c:out value="${member.myself}" />
-          </textarea></td>
-						<td><textarea name="motive" rows="5" cols="70"
-								class="form-control" style="margin-left: 70px">
-          		<c:out value="${member.motive}" />
-          </textarea></td>
-					</tr>
-					<tr>
-						<td>
-							<h6 style="margin-top: 20px; margin-left: 40px;">동아리에서 하고싶은
-								활동</h6>
-						</td>
-						<td>
-							<h6 style="margin-top: 20px; margin-left: 80px;">자신의 장점</h6>
-						</td>
-					</tr>
-					<tr>
-						<td><textarea name="action" rows="5" cols="70"
-								class="form-control" style="margin-left: 30px">
-          		<c:out value="${member.action}" />
-          </textarea></td>
-						<td><textarea name="advantages" rows="5" cols="70"
-								class="form-control" style="margin-left: 70px">
-          		<c:out value="${member.advantages}" />
-          </textarea></td>
-					</tr>
-				</table>
+				</div>
 			</form>
 			<!-- /.content -->
 		</div>
 		<!-- /.content-wrapper -->
-		<footer class="main-footer no-print"> </footer>
+		<footer class="main-footer no-print">
+		</footer>
 
 		<!-- Control Sidebar -->
 		<aside class="control-sidebar control-sidebar-dark">

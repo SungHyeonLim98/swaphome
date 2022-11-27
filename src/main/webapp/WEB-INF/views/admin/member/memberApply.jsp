@@ -20,6 +20,24 @@
 	href="/resources/plugins/fontawesome-free/css/all.min.css">
 <!-- Theme style -->
 <link rel="stylesheet" href="/resources/dist/css/adminlte.min.css">
+
+<style>
+.mem-ap-info {
+	height: 40px;
+	width: auto;
+	background-color: white;
+	border: solid 1px;
+	margin-top: 0px;
+}
+
+.mem-ap-intro {
+	height: 130px;
+	width: auto;
+	background-color: white;
+	border: solid 1px;
+	margin-top: 0px;
+}
+</style>
 </head>
 
 <body class="hold-transition sidebar-mini">
@@ -38,7 +56,8 @@
 						<div class="col-sm-6">
 							<ol class="breadcrumb float-sm-right">
 								<li class="breadcrumb-item"><a href="#">회원소식</a></li>
-								<li class="breadcrumb-item active">쪽지</li>
+								<li class="breadcrumb-item"><a href="#">가입신청서</a></li>
+								<li class="breadcrumb-item active">수신함</li>
 							</ol>
 						</div>
 					</div>
@@ -53,7 +72,7 @@
 
 						<div class="col-md-3">
 							<!--<a href="mailbox.html" class="btn btn-primary btn-block mb-3">Back to Inbox</a>-->
-							<div class="card">
+							<div class="card card-primary card-outline">
 								<div class="card-header">
 									<h3 class="card-title">가입신청서</h3>
 
@@ -67,9 +86,9 @@
 								<div class="card-body p-0">
 									<ul class="nav nav-pills flex-column">
 										<li class="nav-item active" name="MAdminApplyPage"><a
-											href="/admin/member/memberAllApply" class="nav-link"> <i class="fas fa-inbox">수신함</i>
-												<span class="badge bg-primary float-right"
-												name="NewApplyRequest">Data</span>
+											href="/admin/member/memberAllApply" class="nav-link"> <i
+												class="fas fa-inbox"> 수신함</i> <span
+												class="badge bg-primary float-right" name="NewApplyRequest">Data</span>
 										</a></li>
 
 										<li class="nav-item" name="MDropApplyPage"><a href="#"
@@ -80,10 +99,9 @@
 								<!-- /.card-body -->
 							</div>
 							<!-- /.card -->
-							<div class="card">
+							<div class="card card-primary card-outline">
 								<div class="card-header">
 									<h3 class="card-title">쪽지</h3>
-
 									<div class="card-tools">
 										<button type="button" class="btn btn-tool"
 											data-card-widget="collapse">
@@ -93,8 +111,9 @@
 								</div>
 								<div class="card-body p-0">
 									<ul class="nav nav-pills flex-column">
-										<li class="nav-item" name="MAdminMessagePage"><a href="/admin/member/memberAllMessage"
-											class="nav-link"> <i class="fas fa-inbox"> 수신함</i> <span
+										<li class="nav-item" name="MAdminMessagePage"><a
+											href="/admin/member/memberAllMessage" class="nav-link"> <i
+												class="fas fa-inbox"> 수신함</i> <span
 												class="badge bg-primary float-right" name="NewMessagge">Data</span>
 										</a></li>
 										<li class="nav-item" name="MDropMessagePage"><a href="#"
@@ -110,7 +129,7 @@
 						<div class="col-md-9">
 							<div class="card card-primary card-outline">
 								<div class="card-header">
-									<h3 class="card-title">Read Mail(수신한 쪽지)</h3>
+									<h3 class="card-title">Read Mail(수신한 가입신청서)</h3>
 								</div>
 								<!-- /.card-header -->
 
@@ -124,339 +143,145 @@
 										</h6>
 									</div>
 									<!-- /.mailbox-read-info -->
-									<div class="mailbox-controls with-border text-center">
-										<div class="btn-group">
-											<button type="button" class="btn btn-default btn-sm"
-												data-container="body" title="Delete" name="DropRequestbtn">
-												<i class="far fa-trash-alt"></i>
-											</button>
-											<button type="button" class="btn btn-default btn-sm"
-												data-container="body" title="Reply" name="ReRequestbtn">
-												<i class="fas fa-reply"></i>
-											</button>
-											<button type="button" class="btn btn-default btn-sm"
-												data-container="body" title="Forward" name="ForwRequestbtn">
-												<i class="fas fa-share"></i>
-											</button>
-										</div>
-										<!-- /.btn-group -->
-
-									</div>
-									<!-- /.mailbox-controls -->
 									<section class="content">
 										<div class="container-fluid">
-											<div class="row">
-												<!-- left column -->
-												<div class="col-md-6">
-													<!-- general form elements -->
-													<div class="card card-primary">
-
-														<!-- /.card-header -->
+											<form action="/admin/register" method="POST">
+												<div class="row">
+													<!-- left column -->
+													<div class="col-md-6">
+														<!-- general form elements -->
 														<!-- form start -->
-														<form action="/admin/register" method="POST">
-															<div class="card card-success">
-																<div class="card-header">
-																	<h3 class="card-title">이름</h3>
-
-																	<div class="card-tools">
-																		<button type="button" class="btn btn-tool"
-																			data-card-widget="collapse">
-																			<i class="fas fa-minus"></i>
-																		</button>
-																	</div>
-																	<!-- /.card-tools -->
+														<div class="card card-primary card-outline">
+															<div class="card-header">
+																<h3 class="card-title">인원 정보</h3>
+																<div class="card-tools">
+																	<button type="button" class="btn btn-tool"
+																		data-card-widget="collapse">
+																		<i class="fas fa-minus"></i>
+																	</button>
 																</div>
-																<!-- /.card-header -->
-																<div class="card-body">															
-																	<input type="hidden" name="name" value=<c:out value='${member.name}' />>
+																<!-- /.card-tools -->
+															</div>
+															<!-- /.card-header -->
+															<div class="card-body" name="memberSelectNameTb">
+																<h5>이름</h5>
+																<div class="form-control mem-ap-info">
+																	<input type="hidden" name="name"
+																		value=<c:out value='${member.name}' />>
 																	<c:out value='${member.name}' />
 																</div>
-																<!-- /.card-body -->
-
-															</div>
-															<!-- /.card-body -->
-															<div class="card card-success">
-																<div class="card-header">
-																	<h3 class="card-title">학번</h3>
-
-																	<div class="card-tools">
-																		<button type="button" class="btn btn-tool"
-																			data-card-widget="collapse">
-																			<i class="fas fa-minus"></i>
-																		</button>
-																	</div>
-																	<!-- /.card-tools -->
-																</div>
-																<!-- /.card-header -->
-																<div class="card-body">
-																	<input type="hidden" name="gnum" value=<c:out value="${member.gnum}" />>
+																<br>
+																<h5>학번</h5>
+																<div class="form-control mem-ap-info">
+																	<input type="hidden" name="gnum"
+																		value=<c:out value="${member.gnum}" />>
 																	<c:out value="${member.gnum}" />
 																</div>
-																<!-- /.card-body -->
-
-
-
-															</div>
-															<div class="card card-success">
-																<div class="card-header">
-																	<h3 class="card-title">전화번호</h3>
-
-																	<div class="card-tools">
-																		<button type="button" class="btn btn-tool"
-																			data-card-widget="collapse">
-																			<i class="fas fa-minus"></i>
-																		</button>
-																	</div>
-																	<!-- /.card-tools -->
-																</div>
-																<!-- /.card-header -->
-																<div class="card-body">
-																	<input type="hidden" name="phone" value="<c:out value='${member.phone}' />">
+																<br>
+																<h5>전화번호</h5>
+																<div class="form-control mem-ap-info">
+																	<input type="hidden" name="phone"
+																		value="<c:out value='${member.phone}' />">
 																	<c:out value="${member.phone}" />
 																</div>
-																<!-- /.card-body -->
-
-															</div>
-															<div class="card card-success">
-																<div class="card-header">
-																	<h3 class="card-title">학년</h3>
-
-																	<div class="card-tools">
-																		<button type="button" class="btn btn-tool"
-																			data-card-widget="collapse">
-																			<i class="fas fa-minus"></i>
-																		</button>
-																	</div>
-																	<!-- /.card-tools -->
-																</div>
-																<!-- /.card-header -->
-																<div class="card-body">
-																	<input type="hidden" name="grade" value="<c:out value='${member.grade}' />">
+																<br>
+																<h5>학년</h5>
+																<div class="form-control mem-ap-info">
+																	<input type="hidden" name="grade"
+																		value="<c:out value='${member.grade}' />">
 																	<c:out value="${member.grade}" />
 																</div>
-																<!-- /.card-body -->
-
-															</div>
-															<div class="card card-success">
-																<div class="card-header">
-																	<h3 class="card-title">반</h3>
-
-																	<div class="card-tools">
-																		<button type="button" class="btn btn-tool"
-																			data-card-widget="collapse">
-																			<i class="fas fa-minus"></i>
-																		</button>
-																	</div>
-																	<!-- /.card-tools -->
-																</div>
-																<!-- /.card-header -->
-																<div class="card-body">
-																	<input type="hidden" name="cls" value=<c:out value="${member.cls}" />>
+																<br>
+																<h5>반</h5>
+																<div class="form-control mem-ap-info">
+																	<input type="hidden" name="cls"
+																		value=<c:out value="${member.cls}" />>
 																	<c:out value="${member.cls}" />
 																</div>
-																<!-- /.card-body -->
-
-															</div>
-															<div class="card card-success">
-																<div class="card-header">
-																	<h3 class="card-title">주민번호 앞7자리</h3>
-
-																	<div class="card-tools">
-																		<button type="button" class="btn btn-tool"
-																			data-card-widget="collapse">
-																			<i class="fas fa-minus"></i>
-																		</button>
-																	</div>
-																	<!-- /.card-tools -->
-																</div>
-																<!-- /.card-header -->
-																<div class="card-body">
-																	<input type="hidden" name="regnum" value="<c:out value='${member.regnum}' />">
+																<br>
+																<h5>주민번호 앞7자리</h5>
+																<div class="form-control mem-ap-info">
+																	<input type="hidden" name="regnum"
+																		value="<c:out value='${member.regnum}' />">
 																	<c:out value="${member.regnum}" />
 																</div>
-																<!-- /.card-body -->
-
-															</div>
-															<div class="card card-success">
-																<div class="card-header">
-																	<h3 class="card-title">주소</h3>
-
-																	<div class="card-tools">
-																		<button type="button" class="btn btn-tool"
-																			data-card-widget="collapse">
-																			<i class="fas fa-minus"></i>
-																		</button>
-																	</div>
-																	<!-- /.card-tools -->
-																</div>
-																<!-- /.card-header -->
-																<div class="card-body">
-																	<input type="hidden" name="address" value="<c:out value='${member.address}' />">
+																<br>
+																<h5>주소</h5>
+																<div class="form-control mem-ap-info">
+																	<input type="hidden" name="address"
+																		value="<c:out value='${member.address}' />">
 																	<c:out value="${member.address}" />
 																</div>
-																<!-- /.card-body -->
-
+																<br>
+																<h5>학적</h5>
+																<div class="form-control mem-ap-info">
+																	<input type="hidden" name="academic"
+																		value="<c:out value='${member.academic}' />">
+																	<c:out value="${member.academic}" />
+																</div>
 															</div>
+															<!-- /.card-body -->
+														</div>
 													</div>
-													<!-- /.card -->
+													<!--/.col (left) -->
+													<!-- right column -->
+													<div class="col-md-6">
+														<!-- Form Element sizes -->
+														<div class="card card-primary card-outline">
+															<div class="card-header">
+																<h3 class="card-title">인원 소개</h3>
 
-													<!-- general form elements -->
-													<div class="card card-primary">
-
-														<!-- /.card-header -->
-
-
-														<!-- /.card-body -->
-													</div>
-													<div class="card-body">
-														<div class="float-right">
-
+																<div class="card-tools">
+																	<button type="button" class="btn btn-tool"
+																		data-card-widget="collapse">
+																		<i class="fas fa-minus"></i>
+																	</button>
+																</div>
+																<!-- /.card-tools -->
+															</div>
+															<!-- /.card-header -->
+															<div class="card-body" name="memberSelectNameTb">
+																<h5>자기소개</h5>
+																<div class="form-control mem-ap-intro">
+																	<input type="hidden" name="myself"
+																		value="<c:out value='${member.myself}' />">
+																	<c:out value="${member.myself}" />
+																</div>
+																<br>
+																<h5>지원동기</h5>
+																<div class="form-control mem-ap-intro">
+																	<input type="hidden" name="motive"
+																		value="<c:out value='${member.motive}' />">
+																	<c:out value="${member.motive}" />
+																</div>
+																<br>
+																<h5>동아리에서 하고싶은 활동</h5>
+																<div class="form-control mem-ap-intro">
+																	<input type="hidden" name="action"
+																		value="<c:out value='${member.action}' />">
+																	<c:out value="${member.action}" />
+																</div>
+																<br>
+																<h5>자신의 장점</h5>
+																<div class="form-control mem-ap-intro">
+																	<input type="hidden" name="advantages"
+																		value="<c:out value='${member.advantages}' />">
+																	<c:out value="${member.advantages}" />
+																</div>
+															</div>
+															<!-- /.card-body -->
+														</div>
+														<div class="mailbox-controls with-border text-right">
 															<button type="submit" class="btn btn-primary">
-																<i class="far fa-envelope"></i>
-																&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;수
-																락&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+																<i class="far fa-envelope"></i>수 락
 															</button>
-															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 															<button type="submit" class="btn btn-primary">
-																<i class="far fa-envelope"></i>
-																&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;거
-																절&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+																<i class="far fa-envelope"></i>거 절
 															</button>
-															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-
-
 														</div>
 													</div>
-													<!-- /.card -->
-
-													<!-- Input addon -->
-
-													<!-- /.card -->
-													<!-- Horizontal Form -->
-
-													<!-- /.card -->
-
-												</div>
-												<!--/.col (left) -->
-												<!-- right column -->
-												<div class="col-md-6">
-													<!-- Form Element sizes -->
-													<div class="card card-success">
-														<div class="card-header">
-															<h3 class="card-title">자기소개</h3>
-
-															<div class="card-tools">
-																<button type="button" class="btn btn-tool"
-																	data-card-widget="collapse">
-																	<i class="fas fa-minus"></i>
-																</button>
-															</div>
-															<!-- /.card-tools -->
-														</div>
-														<!-- /.card-header -->
-														<div class="card-body">
-															<input type="hidden" name="myself" value="<c:out value='${member.myself}' />">
-															<c:out value="${member.myself}" />
-														</div>
-														<!-- /.card-body -->
-
-													</div>
-
-													<!-- general form elements disabled -->
-													<div class="card card-success">
-														<div class="card-header">
-															<h3 class="card-title">지원동기</h3>
-
-															<div class="card-tools">
-																<button type="button" class="btn btn-tool"
-																	data-card-widget="collapse">
-																	<i class="fas fa-minus"></i>
-																</button>
-															</div>
-															<!-- /.card-tools -->
-														</div>
-														<!-- /.card-header -->
-														<div class="card-body">
-															<input type="hidden" name="motive" value="<c:out value='${member.motive}' />">
-															<c:out value="${member.motive}" />
-														</div>
-														<!-- /.card-body -->
-
-													</div>
-													<div class="card card-success">
-														<div class="card-header">
-															<h3 class="card-title">동아리에서 하고싶은 활동</h3>
-
-															<div class="card-tools">
-																<button type="button" class="btn btn-tool"
-																	data-card-widget="collapse">
-																	<i class="fas fa-minus"></i>
-																</button>
-															</div>
-															<!-- /.card-tools -->
-														</div>
-														<!-- /.card-header -->
-														<div class="card-body">
-															<input type="hidden" name="action" value="<c:out value='${member.action}' />">
-															<c:out value="${member.action}" />
-														</div>
-														<!-- /.card-body -->
-
-													</div>
-													<div class="card card-success">
-														<div class="card-header">
-															<h3 class="card-title">자신의 장점</h3>
-
-															<div class="card-tools">
-																<button type="button" class="btn btn-tool"
-																	data-card-widget="collapse">
-																	<i class="fas fa-minus"></i>
-																</button>
-															</div>
-															<!-- /.card-tools -->
-														</div>
-														<!-- /.card-header -->
-														<div class="card-body">
-															<input type="hidden" name="advantages" value="<c:out value='${member.advantages}' />">
-															<c:out value="${member.advantages}" />
-														</div>
-														<!-- /.card-body -->
-
-													</div>
-													<div class="card card-success">
-														<div class="card-header">
-															<h3 class="card-title">학적</h3>
-
-															<div class="card-tools">
-																<button type="button" class="btn btn-tool"
-																	data-card-widget="collapse">
-																	<i class="fas fa-minus"></i>
-																</button>
-															</div>
-															<!-- /.card-tools -->
-														</div>
-														<!-- /.card-header -->
-														<div class="card-body">
-															<input type="hidden" name="academic" value="<c:out value='${member.academic}' />">
-															<c:out value="${member.academic}" />
-														</div>
-														<!-- /.card-body -->
-
-													</div>
-													</form>
-												</div>
-												<!-- /.card-body -->
-											</div>
-											<!-- /.card -->
-											<!-- general form elements disabled -->
-
-
-
-
-
 											</form>
-										</div>
-										<!-- /.card-body -->
+									</section>
 								</div>
 								<!-- /.card -->
 							</div>

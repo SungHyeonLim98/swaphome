@@ -33,12 +33,12 @@
 				<div class="container-fluid">
 					<div class="row mb-2">
 						<div class="col-sm-6">
-							<h1>회원소식</h1>
+							<h1>게시글</h1>
 						</div>
 						<div class="col-sm-6">
 							<ol class="breadcrumb float-sm-right">
-								<li class="breadcrumb-item"><a href="#">회원소식</a></li>
-								<li class="breadcrumb-item active">쪽지</li>
+								<li class="breadcrumb-item"><a href="#">게시글관리</a></li>
+								<li class="breadcrumb-item active">게시글</li>
 							</ol>
 						</div>
 					</div>
@@ -50,29 +50,10 @@
 			<section class="content">
 				<div class="container-fluid">
 					<div class="row">
-
-						<div class="col-md-3">
-							<!--<a href="mailbox.html" class="btn btn-primary btn-block mb-3">Back to Inbox</a>-->
-							<div class="card">
-								<div class="card-header">
-									<h3 class="card-title">가입신청서</h3>
-
-									<div class="card-tools">
-										<button type="button" class="btn btn-tool"
-											data-card-widget="collapse">
-											<i class="fas fa-minus"></i>
-										</button>
-									</div>
-								</div>
-								<!-- /.card-body -->
-							</div>
-							<!-- /.card -->
-						</div>
-						<!-- /.col -->
-						<div class="col-md-9">
+						<div class="col-md-12">
 							<div class="card card-primary card-outline">
 								<div class="card-header">
-									<h3 class="card-title">Read Mail(수신한 쪽지)</h3>
+									<h3 class="card-title">Read Mail(작성한 게시글)</h3>
 								</div>
 								<!-- /.card-header -->
 								<div class="card-body p-0">
@@ -90,21 +71,6 @@
 									<c:out value='${board.contents}' />
 									<!-- /.mailbox-read-info -->
 									<div class="mailbox-controls with-border text-center">
-										<div class="btn-group">
-											<button type="button" class="btn btn-default btn-sm"
-												data-container="body" title="Delete" name="DropRequestbtn">
-												<i class="far fa-trash-alt"></i>
-											</button>
-											<button type="button" class="btn btn-default btn-sm"
-												data-container="body" title="Reply" name="ReRequestbtn">
-												<i class="fas fa-reply"></i>
-											</button>
-											<button type="button" class="btn btn-default btn-sm"
-												data-container="body" title="Forward" name="ForwRequestbtn">
-												<i class="fas fa-share"></i>
-											</button>
-										</div>
-										<!-- /.btn-group -->
 
 									</div>
 									<!-- /.mailbox-controls -->
@@ -129,7 +95,7 @@
 									</div>
 									<button type="button" class="btn btn-default"
 										name="DropRequestbtn">
-										<i class="far fa-trash-alt"></i> Delete
+										<i class="far fa-trash-alt"></i> 삭제
 									</button>
 								</div>
 								<!-- /.card-footer -->

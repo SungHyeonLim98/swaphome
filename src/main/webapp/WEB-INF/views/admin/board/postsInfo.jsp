@@ -39,7 +39,7 @@
 						</div>
 						<div class="col-sm-6">
 							<ol class="breadcrumb float-sm-right">
-								<li class="breadcrumb-item"><a href="#">게시글 관리</a></li>
+								<li class="breadcrumb-item"><a href="#">게시글관리</a></li>
 							</ol>
 						</div>
 					</div>
@@ -50,11 +50,11 @@
 			<!-- Main content -->
 			<section class="content">
 				<div class="row">
-					<div class="col-md-10">
+					<div class="col-md-12">
 						<div class="card card-primary card-outline">
 							<div class="card-header">
 								<div class="card-title">
-									<button onclick="location.href='/admin/board/posting'" class="btn btn-primary"style="font-size:  15px;">
+									<button onclick="location.href='/admin/board/posting'" class="btn btn-block btn-outline-primary"style="font-size:  15px;">
 										<i class="fas fa-pencil-alt"> 글쓰기</i>
 									</button>
 								</div>

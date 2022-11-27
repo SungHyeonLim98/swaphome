@@ -33,9 +33,13 @@
 				<div class="container-fluid">
 					<div class="row mb-2">
 						<div class="col-sm-6">
-							<h1>
-								<b>게시글 작성</b>
-							</h1>
+							<h1>게시글 작성</h1>
+						</div>
+						<div class="col-sm-6">
+							<ol class="breadcrumb float-sm-right">
+								<li class="breadcrumb-item"><a href="#">게시글관리</a></li>
+								<li class="breadcrumb-item active">게시글작성</li>
+							</ol>
 						</div>
 					</div>
 				</div>
@@ -75,26 +79,25 @@
 								</div>
 
 								<div class="form-group">
-									<div class="btn btn-default btn-file" style='font-size: 13px;'>
+									<div class="btn btn-default btn-file"
+										style='font-size: 13px; margin-left: 20px;'>
 										<i class="fas fa-paperclip"></i> 첨부파일 <input type="file"
 											name="boardAttachedBtn">
+									</div>
+									<div class="float-right">
+										<button type="button" style='font-size: 15px;'
+											class="btn btn-default">
+											<i class="fas fa-pencil-alt"></i> 수정
+										</button>
+										<button type="submit"
+											style='font-size: 15px; margin-right: 20px;'
+											class="btn btn-primary">
+											<i class="far fa-envelope"></i> 전송
+										</button>
 									</div>
 								</div>
 							</div>
 							<!-- /.card-body -->
-							<div class="card-footer">
-								<div class="float-right">
-									<button type="button" style='font-size: 15px;'
-										class="btn btn-default">
-										<i class="fas fa-pencil-alt"></i> 수정
-									</button>
-									<button type="submit" style='font-size: 15px;'
-										class="btn btn-primary">
-										<i class="far fa-envelope"></i> 전송
-									</button>
-								</div>
-							</div>
-							<!-- /.card-footer -->
 					</div>
 					</form>
 					<!-- /.card -->
@@ -109,7 +112,6 @@
 	<!-- /.content -->
 	</div>
 	<!-- /.content-wrapper -->
-	<footer class="main-footer no-print"> </footer>
 
 	<!-- Control Sidebar -->
 	<aside class="control-sidebar control-sidebar-dark">
