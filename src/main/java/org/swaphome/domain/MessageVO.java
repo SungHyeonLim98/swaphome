@@ -12,5 +12,7 @@ public class MessageVO {
 	private String title;
 	private String contents;
 	private String name;
+	private String cls;
+	private int grade;
 	private Date regdate;
 }

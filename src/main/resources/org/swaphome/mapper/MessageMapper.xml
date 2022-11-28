@@ -15,11 +15,11 @@
 						<when test="type == 'G'.toString()">
 							gnum like '%'||#{keyword}||'%'
 						</when>
-						<when test="type == 'T'.toString()">
-							title like '%'||#{keyword}||'%'
-						</when>
 						<when test="type == 'R'.toString()">
-							regdate like '%'||#{keyword}||'%'
+							grade like '%'||#{keyword}||'%'
+						</when>
+						<when test="type == 'C'.toString()">
+							cls like '%'||#{keyword}||'%'
 						</when>
 					</choose>
 				</trim>
@@ -43,11 +43,11 @@
 		resultType="org.swaphome.domain.MessageVO">
 	<![CDATA[
 		select 
-			pnum, gnum, title, contents, name, regdate
+			pnum, gnum, title, contents, name, regdate, cls, grade
 		from
 			( 
 			select /*+index_desc(messages pk_messages) */
-    			rownum rn, pnum, gnum, title, contents, name, regdate
+    			rownum rn, pnum, gnum, title, contents, name, regdate, cls, grade
     		from
         		messages
     		where 

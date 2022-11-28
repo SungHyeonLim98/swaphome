@@ -39,7 +39,7 @@
 						</div>
 						<div class="col-sm-6">
 							<ol class="breadcrumb float-sm-right">
-								<li class="breadcrumb-item"><a href="#">게시글 관리</a></li>
+								<li class="breadcrumb-item"><a href="#">게시글관리</a></li>
 							</ol>
 						</div>
 					</div>
@@ -50,16 +50,20 @@
 			<!-- Main content -->
 			<section class="content">
 				<div class="row">
-					<div class="col-md-10">
+					<div class="col-md-12">
 						<div class="card card-primary card-outline">
 							<div class="card-header">
-								<h3 class="card-title">게시글</h3>
+								<div class="card-title">
+									<button onclick="location.href='/admin/board/posting'" class="btn btn-block btn-outline-primary"style="font-size:  15px;">
+										<i class="fas fa-pencil-alt"> 글쓰기</i>
+									</button>
+								</div>
 								<div class="card-tools">
 									<!--작은 검색창-->
-									<div class="input-group input-group-sm">
+									<div class="input-group input-group">
 										<input type="text" class="form-control" placeholder="검색"
 											name="Search Request">
-										<div class="input-group-append" name="Searching Request">
+										<div class="input-group-append">
 											<div class="btn btn-primary">
 												<i class="fas fa-search"></i>
 											</div>
@@ -77,8 +81,8 @@
 										<thead>
 											<tr>
 												<td class="mailbox">카테고리</td>
-												<td class="mailbox" style="text-align: center;">
-													<b>제목</b></td>
+												<td class="mailbox" style="text-align: center;"><b>게시번호</b></td>
+												<td class="mailbox" style="text-align: center;"><b>제목</b></td>
 												<td class="mailbox" style="text-align: center;">내용</td>
 												<td class="mailbox" style="text-align: center;">작성자</td>
 												<td class="mailbox" style="text-align: center;">작성날짜</td>
@@ -86,43 +90,27 @@
 										</thead>
 										<tbody>
 											<c:forEach items="${list}" var="board">
-												<tr>
-												
+												<tr class='move'
+														id="<c:out value="${board.bno}"/>">
 													<td><c:out value="${board.category}" /></td>
-													<td>
-													<a class='move'
-														href="<c:out value="${board.bno}"/>">
-														<c:out value="${board.title}" /></a></td>
+													<td><c:out value="${board.bno}" /></td>
+													<td><c:out value="${board.title}" /></td>
 													<td><c:out value="${board.contents}" /></td>
 													<td><c:out value="${board.writer}" /></td>
-													<td><fmt:formatDate pattern="yyyy-MM-dd" 
-														value="${board.updatedate}" /></td>
+													<td><fmt:formatDate pattern="yyyy-MM-dd"
+															value="${board.updatedate}" /></td>
 												</tr>
 											</c:forEach>
 										</tbody>
 										<!--/.작성된 게시글 선택-->
 									</table>
+									<%@ include file="../includes/paging.jsp"%>
 									<!-- /.table -->
 								</div>
 								<!-- /.mail-box-messages -->
 							</div>
 							<!-- /.card-body -->
-							<div class="card-footer p-1">
-								<div class="float">
-									<div class="btn-group">
-										<button type="button" class="btn btn-default btn-sm"
-											name="Re50Data">
-											<i class="fas fa-chevron-left"></i>
-										</button>
-										<button type="button" class="btn btn-default btn-sm"
-											name="Forw50Data">
-											<i class="fas fa-chevron-right"></i>
-										</button>
-									</div>
-									<!-- /.btn-group -->
-								</div>
-								<!-- /.float-right -->
-							</div>
+
 						</div>
 						<!-- /.card -->
 					</div>
@@ -142,12 +130,14 @@
 		<!-- /.control-sidebar -->
 	</div>
 	<!-- ./wrapper -->
-	
+
 	<form id='actionForm' action="/admin/board/postsInfo" method='get'>
 		<input type='hidden' name='pagenum' value='${pageMaker.cri.pagenum}'>
 		<input type='hidden' name='amount' value='${pageMaker.cri.amount}'>
-		<input type='hidden' name='type' value='<c:out value="${ pageMaker.cri.type }"/>'>
-		<input type='hidden' name='keyword' value='<c:out value="${ pageMaker.cri.keyword }"/>'>
+		<input type='hidden' name='type'
+			value='<c:out value="${ pageMaker.cri.type }"/>'> <input
+			type='hidden' name='keyword'
+			value='<c:out value="${ pageMaker.cri.keyword }"/>'>
 	</form>
 
 	<script>
@@ -183,7 +173,7 @@
   })
 </script>
 
-<script>
+	<script>
 	$(document).ready(
 		function () {
 		var actionForm = $("#actionForm");
@@ -203,15 +193,18 @@
 		$(".move").on("click",
 			function (e) {
 		
+			var tr = $(this);
+			var td = tr.children();
+			var bno = "a" + td.eq(0).text();
 				e.preventDefault();
 				actionForm
 					.append("<input type='hidden' name='bno' value='"
-						+ $(this).attr("href")
+						+ $(this).attr("id")
 						+ "'>");
 				actionForm.attr("action", "/admin/board/postInfo");
 				actionForm.submit();
 			});
-		
+				
 		var searchForm = $("#searchForm");
 
 		$("#searchForm button").on(

@@ -26,6 +26,12 @@
 	href="/resources/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
 <!-- Theme style -->
 <link rel="stylesheet" href="/resources/dist/css/adminlte.min.css">
+<style>
+.search-form {
+	margin-top: 7px;
+	margin-left: 15px;
+}
+</style>
 </head>
 <body class="hold-transition sidebar-mini">
 	<div class="wrapper">
@@ -37,9 +43,13 @@
 			<section class="content-header">
 				<div class="container-fluid">
 					<div class="row mb-2">
-						<div class="col-sm-6"></div>
+						<div class="col-sm-6">
+							<h1>회원 정보 관리</h1>
+						</div>
 						<div class="col-sm-6">
 							<ol class="breadcrumb float-sm-right">
+								<li class="breadcrumb-item"><a href="#">회원 정보 관리</a></li>
+								<li class="breadcrumb-item active">동아리원 관리</li>
 							</ol>
 						</div>
 					</div>
@@ -52,96 +62,71 @@
 				<div class="container-fluid">
 					<div class="row">
 						<div class="col-12">
-							<div class="card">
+							<div class="card card-primary card-outline">
 								<div class="card-header">
 									<h3 class="card-title">동아리원 관리</h3>
 								</div>
 								<div class='row'>
-									<div class="col-lg-12">
+									<div class="col-lg-12 search-form">
 
-										<form id='searchForm' action="/admin/member/membersInfo" method='get'>
-											<select name='type'>
-												<option value="" <c:out
-													value="${pageMaker.cri.type == null?'selected':''}" />>--</option>
-												<option value="N" <c:out
-													value="${pageMaker.cri.type eq 'N'?'selected':''}" />>이름</option>
-												<option value="G" <c:out
-													value="${pageMaker.cri.type eq 'G'?'selected':''}" />>학번</option>
-												<option value="R" <c:out
-													value="${pageMaker.cri.type eq 'R'?'selected':''}" />>학년</option>
-												<option value="C" <c:out
-													value="${pageMaker.cri.type eq 'R'?'selected':''}" />>반</option>
-												<option value="P" <c:out
-													value="${pageMaker.cri.type eq 'R'?'selected':''}" />>전화번호</option>
-											</select> <input type='text' name='keyword'
-												value='<c:out value="${pageMaker.cri.keyword}"/>' /> <input
-												type='hidden' name='pagenum'
-												value='<c:out value="${pageMaker.cri.pagenum}"/>' /> <input
-												type='hidden' name='amount'
-												value='<c:out value="${pageMaker.cri.amount}"/>' />
-											<button class='btn btn-default'>Search</button>
+										<form id='searchForm' action="/admin/member/membersInfo"
+											method='get'>
+											<%@ include file="../includes/memberSearchOption.jsp"%>
 										</form>
 									</div>
-								<!-- /.card-header -->
-								<div class="card-body">
-									<table id="example2" class="table table-bordered table-hover">
-										<thead>
-											<tr>
-												<th class="sorting" tabindex="0" aria-controls="example2"
-													rowspan="1" colspan="1"
-													aria-label="이름: activate to sort column ascending">이름
-													<button type='button' onclick='sortTable()'></button>
-												</th>
-												<th>학번</th>
-												<th>학년</th>
-												<th>반</th>
-												<th>전화번호</th>
-												<th>회원정보 조회</th>
-											</tr>
-										</thead>
-										<tbody>
-											<c:forEach items="${list}" var="member">
+									<!-- /.card-header -->
+									<div class="card-body">
+										<table id="example2" class="table table-bordered table-hover">
+											<thead>
 												<tr>
-													<td><c:out value="${member.name}" /></td>
-													<td><c:out value="${member.gnum}" /></td>
-													<td><c:out value="${member.grade}" /></td>
-													<td><c:out value="${member.cls}" /></td>
-													<td><c:out value="${member.phone}" /></td>
-													<td><a class='move'
-														href="<c:out value="${member.mnum}"/>">조회</a></td>
+													<th class="sorting" tabindex="0" aria-controls="example2"
+														rowspan="1" colspan="1"
+														aria-label="이름: activate to sort column ascending">이름
+														<button type='button' onclick='sortTable()'></button>
+													</th>
+													<th>학번</th>
+													<th>학년</th>
+													<th>반</th>
+													<th>전화번호</th>
+													<th>가입날짜</th>
 												</tr>
-											</c:forEach>
-										</tbody>
-										<tfoot>
-											<tr>
+											</thead>
+											<tbody>
+												<c:forEach items="${list}" var="member">
+													<tr class='move' id="<c:out value="${member.mnum}"/>">
+														<td><c:out value="${member.name}" /></td>
+														<td><c:out value="${member.gnum}" /></td>
+														<td><c:out value="${member.grade}" /></td>
+														<td><c:out value="${member.cls}" /></td>
+														<td><c:out value="${member.phone}" /></td>
+														<td><c:out value="${member.regdate}" /></td>
+													</tr>
+												</c:forEach>
+											</tbody>
+											<tfoot>
+												<tr>
 
-											</tr>
-										</tfoot>
-									</table>
+												</tr>
+											</tfoot>
+										</table>
 
-									<%@ include file="../includes/paging.jsp"%>
+										<%@ include file="../includes/paging.jsp"%>
+									</div>
+									<!-- /.card-body -->
 								</div>
-								<!-- /.card-body -->
-							</div>
 
-							<!-- /.card -->
+								<!-- /.card -->
+							</div>
+							<!-- /.col -->
 						</div>
-						<!-- /.col -->
+						<!-- /.row -->
 					</div>
-					<!-- /.row -->
-				</div>
-				<!-- /.container-fluid -->
+					<!-- /.container-fluid -->
 			</section>
 			<!-- /.content -->
 		</div>
 		<!-- /.content-wrapper -->
 		<footer class="main-footer">
-			<div class="float-right d-none d-sm-block">
-				<b>Version</b> 3.2.0
-			</div>
-			<strong>Copyright &copy; 2014-2021 <a
-				href="https://adminlte.io">AdminLTE.io</a>.
-			</strong> All rights reserved.
 		</footer>
 
 		<!-- Control Sidebar -->
@@ -150,75 +135,86 @@
 		</aside>
 		<!-- /.control-sidebar -->
 	</div>
-	
+
 	<form id='actionForm' action="/admin/member/membersInfo" method='get'>
 		<input type='hidden' name='pagenum' value='${pageMaker.cri.pagenum}'>
 		<input type='hidden' name='amount' value='${pageMaker.cri.amount}'>
-		<input type='hidden' name='type' value='<c:out value="${ pageMaker.cri.type }"/>'>
-		<input type='hidden' name='keyword' value='<c:out value="${ pageMaker.cri.keyword }"/>'>
+		<input type='hidden' name='type'
+			value='<c:out value="${ pageMaker.cri.type }"/>'> <input
+			type='hidden' name='keyword'
+			value='<c:out value="${ pageMaker.cri.keyword }"/>'>
 	</form>
 	<!-- ./wrapper -->
 
-<script>
-	$(document)
-	.ready(
-		function () {
-		var actionForm = $("#actionForm");
-		
-		$(".paginate_button a").on("click",
-			function (e) {
-		
-				e.preventDefault();
-		
-				console.log('click');
-		
-				actionForm.find("input[name='pagenum']")
-					.val($(this).attr("href"));
-				actionForm.submit();
-			});
-		
-		$(".move")
-		.on("click",
-			function (e) {
-		
-				e.preventDefault();
-				actionForm
-					.append("<input type='hidden' name='mnum' value='"
-						+ $(this).attr("href")
-						+ "'>");
-				actionForm.attr("action", "/admin/member/memberInfo");
-				actionForm.submit();
-			});
-		
-		var searchForm = $("#searchForm");
+	<script>
+		$(document)
+				.ready(
+						function() {
+							var actionForm = $("#actionForm");
 
-		$("#searchForm button").on(
-			"click",
-			function (e) {
+							$(".paginate_button a").on(
+									"click",
+									function(e) {
 
-				if (!searchForm.find("option:selected")
-					.val()) {
-					alert("검색종류를 선택하세요");
-					return false;
-				}
+										e.preventDefault();
 
-				if (!searchForm.find(
-					"input[name='keyword']").val()) {
-					alert("키워드를 입력하세요");
-					return false;
-				}
+										console.log('click');
 
-				searchForm.find("input[name='pageNum']")
-					.val("1");
-				e.preventDefault();
+										actionForm
+												.find("input[name='pagenum']")
+												.val($(this).attr("href"));
+										actionForm.submit();
+									});
 
-				searchForm.submit();
-			});
+							$(".move")
+									.on(
+											"click",
+											function(e) {
 
+												e.preventDefault();
+												actionForm
+														.append("<input type='hidden' name='mnum' value='"
+																+ $(this).attr(
+																		"id")
+																+ "'>");
+												actionForm
+														.attr("action",
+																"/admin/member/memberInfo");
+												actionForm.submit();
+											});
 
-		
-		});
+							var searchForm = $("#searchForm");
 
-</script>
+							$("#searchForm button")
+									.on(
+											"click",
+											function(e) {
+
+												if (!searchForm.find(
+														"option:selected")
+														.val()) {
+													alert("검색종류를 선택하세요");
+													return false;
+												}
+
+												if (!searchForm
+														.find(
+																"input[name='keyword']")
+														.val()) {
+													alert("키워드를 입력하세요");
+													return false;
+												}
+
+												searchForm
+														.find(
+																"input[name='pageNum']")
+														.val("1");
+												e.preventDefault();
+
+												searchForm.submit();
+											});
+
+						});
+	</script>
 </body>
 </html>
