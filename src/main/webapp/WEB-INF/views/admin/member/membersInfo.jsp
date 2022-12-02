@@ -34,6 +34,9 @@
 </style>
 </head>
 <body class="hold-transition sidebar-mini">
+	<div class="preloader flex-column justify-content-center align-items-center">
+		<img class="animation__shake" src="/resources/img/ql.png" height="60" width="60" style="display:none;">
+	</div>
 	<div class="wrapper">
 		<%@ include file="../includes/header.jsp"%>
 
@@ -126,8 +129,7 @@
 			<!-- /.content -->
 		</div>
 		<!-- /.content-wrapper -->
-		<footer class="main-footer">
-		</footer>
+		<%@ include file="../includes/footer.jsp" %>
 
 		<!-- Control Sidebar -->
 		<aside class="control-sidebar control-sidebar-dark">

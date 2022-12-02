@@ -53,12 +53,9 @@
 			<section class="content">
 				<div class="row">
 					<div class="col-md-3">
-
-
 						<div class="card card-primary card-outline">
 							<div class="card-header">
 								<h3 class="card-title">가입신청서</h3>
-
 								<div class="card-tools">
 									<button type="button" class="btn btn-tool"
 										data-card-widget="collapse">
@@ -68,12 +65,9 @@
 							</div>
 							<div class="card-body p-0">
 								<ul class="nav nav-pills flex-column">
-									<li class="nav-item active" name="MAdminApplyPage"><a
-										href="" class="nav-link"> <i class="fas fa-inbox">수신함</i>
-											<span class="badge bg-primary float-right"
-											name="NewApplyRequest">Data</span>
+									<li class="nav-item" name="MAdminApplyPage"><a href=""
+										class="nav-link"> <i class="fas fa-inbox"> 수신함</i>
 									</a></li>
-
 									<li class="nav-item" name="MDropApplyPage"><a href="#"
 										class="nav-link"> <i class="far fa-trash-alt"></i> 휴지통
 									</a></li>
@@ -82,7 +76,7 @@
 							<!-- /.card-body -->
 						</div>
 						<!-- /.card -->
-						<div class="card card-primary card-outline">
+						<div class="card">
 							<div class="card-header">
 								<h3 class="card-title">쪽지</h3>
 
@@ -97,8 +91,7 @@
 								<ul class="nav nav-pills flex-column">
 									<li class="nav-item"><a
 										href="/admin/member/memberAllMessage" class="nav-link"> <i
-											class="fas fa-inbox"> 수신함</i> <span
-											class="badge bg-primary float-right">Data</span>
+											class="fas fa-inbox"></i> 수신함
 									</a></li>
 									<li class="nav-item"><a href="#" class="nav-link"> <i
 											class="far fa-trash-alt"> 휴지통</i>
@@ -113,7 +106,7 @@
 					<div class="col-md-9">
 						<div class="card card-primary card-outline">
 							<div class="card-header">
-								<h3 class="card-title">가입신청</h3>
+								<h3 class="card-title">가입신청서</h3>
 								<div class="card-tools">
 									<div class="card-tools">
 										<form id='searchForm' action="/admin/member/memberAllApply"
@@ -122,7 +115,7 @@
 										</form>
 									</div>
 								</div>
-									<!-- /.card-tools -->
+								<!-- /.card-tools -->
 								<br>
 								<div class="card-body p-0">
 									<div class="mailbox-controls">
@@ -161,8 +154,7 @@
 											</thead>
 											<tbody>
 												<c:forEach items="${list}" var="member">
-													<tr class='move'
-														id="<c:out value="${member.gnum}"/>">
+													<tr class='move' id="<c:out value="${member.gnum}"/>">
 														<td class="mailbox-star"><a href="#"></a></td>
 														<td><c:out value="${member.name}" /></td>
 														<td><c:out value="${member.gnum}" /></td>
@@ -194,8 +186,8 @@
 			<!-- /.content -->
 		</div>
 		<!-- /.content-wrapper -->
-		<footer class="main-footer"> </footer>
 
+		<%@ include file="../includes/footer.jsp"%>
 		<!-- Control Sidebar -->
 		<aside class="control-sidebar control-sidebar-dark">
 			<!-- Control sidebar content goes here -->

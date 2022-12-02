@@ -20,49 +20,73 @@ import lombok.extern.log4j.Log4j;
 @Log4j
 @RequestMapping("/member/*")
 public class MemberController {
-	
-	@Setter(onMethod_ = { @Autowired })
-	private ReqMemberService service;
-	
-	@GetMapping("/registerTest")
-	public String login() {
+   
+   @Setter(onMethod_ = { @Autowired })
+   private ReqMemberService service;
+   
+   @GetMapping("/registerTest")
+   public String login() {
 
-		return "member/registerTest";
-	}
-	
-	@GetMapping("/board/activityBoard")
-	public void activityBoard() {
+      return "member/registerTest";
+   }
+   
+   @GetMapping("/board/promoBoard")
+   public void promoBoard() {
 
-		log.info("ActivityBoardPage");
-	}
-	
-	@GetMapping("/board/activityBoardDetail")
-	public void activityBoardDetail() {
+	   log.info("PromoBoardPage");
+   }
+   
+   @GetMapping("/board/promoBoardDetail")
+   public void promoBoardDetail() {
 
-		log.info("ActivityBoardDetailPage");
-	}
-	
-	@GetMapping("/board/promoBoard")
-	public void promoBoard() {
+	   log.info("PromoBoardDetailPage");
+   }
+   
+   @GetMapping("/board/activityBoard")
+   public void activityBoard() {
 
-		log.info("PromoBoardPage");
-	}
-	
-	@GetMapping("/board/promoBoardDetail")
-	public void promoBoardDetail() {
+	   log.info("ActivityBoardPage");
+   }
+   
+   @GetMapping("/board/activityBoardDetail")
+   public void activityBoardDetail() {
 
-		log.info("PromoBoardDetailPage");
-	}
-	
-	// CRUD
-	@PostMapping("/member/register")
-	public String register(ReqMemberVO member, RedirectAttributes rttr) {
-		
-		log.info("register: " + member);
-		
-		service.register(member);
-		rttr.addFlashAttribute("result", member.getGnum());
-		
-		return "redirect:/admin/member/memberAllApply";
-	}
+	   log.info("ActivityBoardDetailPage");
+   }
+   
+   @GetMapping("/board/noticeBoard")
+   public void noticeBoard() {
+
+	   log.info("NoticeBoardPage");
+   }
+   
+   @GetMapping("/board/noticeBoardDetail")
+   public void noticeBoardDetail() {
+
+	   log.info("NoticeBoardDetailPage");
+   }
+   
+   @GetMapping("/user/note")
+   public void note() {
+
+	   log.info("NotePage");
+   }
+   
+   @GetMapping("/user/register")
+   public void register() {
+
+	   log.info("Register");
+   }
+   
+   // CRUD
+   @PostMapping("/member/register")
+   public String register(ReqMemberVO member, RedirectAttributes rttr) {
+      
+      log.info("register: " + member);
+      
+      service.register(member);
+      rttr.addFlashAttribute("result", member.getGnum());
+      
+      return "redirect:/admin/member/memberAllApply";
+   }
 }

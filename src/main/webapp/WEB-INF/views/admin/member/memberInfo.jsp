@@ -50,9 +50,7 @@ label {
 				<div class="container-fluid">
 					<div class="row mb-2">
 						<div class="col-sm-6">
-							<h1>
-								회원정보
-								<h1>
+							<h1>회원정보<h1>
 						</div>
 						<div class="col-sm-6">
 							<ol class="breadcrumb float-sm-right">
@@ -160,7 +158,8 @@ label {
 			<!-- /.content -->
 		</div>
 		<!-- /.content-wrapper -->
-		<footer class="main-footer no-print"> </footer>
+
+		<%@ include file="../includes/footer.jsp" %>
 
 		<!-- Control Sidebar -->
 		<aside class="control-sidebar control-sidebar-dark">

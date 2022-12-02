@@ -53,7 +53,7 @@
 			<section class="content">
 				<div class="row">
 					<div class="col-md-3">
-						<div class="card card-primary card-outline">
+						<div class="card">
 							<div class="card-header">
 								<h3 class="card-title">가입신청서</h3>
 
@@ -68,8 +68,7 @@
 								<ul class="nav nav-pills flex-column">
 									<li class="nav-item active" name="MAdminApplyPage"><a
 										href="/admin/member/memberAllApply" class="nav-link"> <i
-											class="fas fa-inbox">수신함</i> <span
-											class="badge bg-primary float-right" name="NewApplyRequest">Data</span>
+											class="fas fa-inbox"></i> 수신함
 									</a></li>
 
 									<li class="nav-item" name="MDropApplyPage"><a href="#"
@@ -94,8 +93,7 @@
 							<div class="card-body p-0">
 								<ul class="nav nav-pills flex-column">
 									<li class="nav-item" name="MAdminMessagePage"><a href=""
-										class="nav-link"> <i class="fas fa-inbox"> 수신함</i> <span
-											class="badge bg-primary float-right" name="NewMessagge">Data</span>
+										class="nav-link"> <i class="fas fa-inbox"> 수신함</i>
 									</a></li>
 									<li class="nav-item" name="MDropMessagePage"><a href="#"
 										class="nav-link"> <i class="far fa-trash-alt"> 휴지통</i>
@@ -159,8 +157,7 @@
 											</thead>
 											<tbody>
 												<c:forEach items="${list}" var="message">
-													<tr class='move'
-														id="<c:out value="${message.pnum}"/>">
+													<tr class='move' id="<c:out value="${message.pnum}"/>">
 														<td class="mailbox-star"><a href="#"></a></td>
 														<td><c:out value="${message.name}" /></td>
 														<td><c:out value="${message.gnum}" /></td>
@@ -196,8 +193,8 @@
 			<!-- /.content -->
 		</div>
 		<!-- /.content-wrapper -->
-		<footer class="main-footer"> </footer>
 
+		<%@ include file="../includes/footer.jsp"%>
 		<!-- Control Sidebar -->
 		<aside class="control-sidebar control-sidebar-dark">
 			<!-- Control sidebar content goes here -->
@@ -210,8 +207,10 @@
 		method='get'>
 		<input type='hidden' name='pagenum' value='${pageMaker.cri.pagenum}'>
 		<input type='hidden' name='amount' value='${pageMaker.cri.amount}'>
-		<input type='hidden' name='type' value='<c:out value="${ pageMaker.cri.type }"/>'>
-		<input type='hidden' name='keyword' value='<c:out value="${ pageMaker.cri.keyword }"/>'>
+		<input type='hidden' name='type'
+			value='<c:out value="${ pageMaker.cri.type }"/>'> <input
+			type='hidden' name='keyword'
+			value='<c:out value="${ pageMaker.cri.keyword }"/>'>
 	</form>
 	<!-- Page specific script -->
 	<script>
