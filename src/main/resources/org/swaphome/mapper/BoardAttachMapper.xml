@@ -6,7 +6,7 @@
 
 	<insert id="insert">
 		insert into attach(uuid, uploadpath, filename, filetype, bno)
-		values (#{uuid}, #{uploadPath}, #{filename}, #{filetype}, #{bno})
+		values (#{uuid}, #{uploadpath}, #{filename}, #{filetype}, #{bno})
 	</insert>
 
 	<delete id="delete">

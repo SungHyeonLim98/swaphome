@@ -54,7 +54,9 @@
 						<div class="card card-primary card-outline">
 							<div class="card-header">
 								<div class="card-title">
-									<button onclick="location.href='/admin/board/posting'" class="btn btn-block btn-outline-primary"style="font-size:  15px;">
+									<button onclick="location.href='/admin/board/posting'"
+										class="btn btn-block btn-outline-primary"
+										style="font-size: 15px;">
 										<i class="fas fa-pencil-alt"> 글쓰기</i>
 									</button>
 								</div>
@@ -90,8 +92,7 @@
 										</thead>
 										<tbody>
 											<c:forEach items="${list}" var="board">
-												<tr class='move'
-														id="<c:out value="${board.bno}"/>">
+												<tr class='move' id="<c:out value="${board.bno}"/>">
 													<td><c:out value="${board.category}" /></td>
 													<td><c:out value="${board.bno}" /></td>
 													<td><c:out value="${board.title}" /></td>
@@ -121,7 +122,8 @@
 			<!-- /.content -->
 		</div>
 		<!-- /.content-wrapper -->
-		<footer class="main-footer"> </footer>
+
+		<%@ include file="../includes/footer.jsp"%>
 
 		<!-- Control Sidebar -->
 		<aside class="control-sidebar control-sidebar-dark">
@@ -141,100 +143,117 @@
 	</form>
 
 	<script>
-  $(function () {
-    //Enable check and uncheck all functionality
-    $('.checkbox-toggle').click(function () {
-      var clicks = $(this).data('clicks')
-      if (clicks) {
-        //Uncheck all checkboxes
-        $('.mailbox-messages input[type=\'checkbox\']').prop('checked', false)
-        $('.checkbox-toggle .far.fa-check-square').removeClass('fa-check-square').addClass('fa-square')
-      } else {
-        //Check all checkboxes
-        $('.mailbox-messages input[type=\'checkbox\']').prop('checked', true)
-        $('.checkbox-toggle .far.fa-square').removeClass('fa-square').addClass('fa-check-square')
-      }
-      $(this).data('clicks', !clicks)
-    })
+		$(function() {
+			//Enable check and uncheck all functionality
+			$('.checkbox-toggle').click(
+					function() {
+						var clicks = $(this).data('clicks')
+						if (clicks) {
+							//Uncheck all checkboxes
+							$('.mailbox-messages input[type=\'checkbox\']')
+									.prop('checked', false)
+							$('.checkbox-toggle .far.fa-check-square')
+									.removeClass('fa-check-square').addClass(
+											'fa-square')
+						} else {
+							//Check all checkboxes
+							$('.mailbox-messages input[type=\'checkbox\']')
+									.prop('checked', true)
+							$('.checkbox-toggle .far.fa-square').removeClass(
+									'fa-square').addClass('fa-check-square')
+						}
+						$(this).data('clicks', !clicks)
+					})
 
-    //Handle starring for font awesome
-    $('.mailbox-star').click(function (e) {
-      e.preventDefault()
-      //detect type
-      var $this = $(this).find('a > i')
-      var fa    = $this.hasClass('fa')
+			//Handle starring for font awesome
+			$('.mailbox-star').click(function(e) {
+				e.preventDefault()
+				//detect type
+				var $this = $(this).find('a > i')
+				var fa = $this.hasClass('fa')
 
-      //Switch states
-      if (fa) {
-        $this.toggleClass('fa-star')
-        $this.toggleClass('fa-star-o')
-      }
-    })
-  })
-</script>
+				//Switch states
+				if (fa) {
+					$this.toggleClass('fa-star')
+					$this.toggleClass('fa-star-o')
+				}
+			})
+		})
+	</script>
 
 	<script>
-	$(document).ready(
-		function () {
-		var actionForm = $("#actionForm");
-		
-		$(".paginate_button a").on("click",
-			function (e) {
-		
-				e.preventDefault();
-		
-				console.log('click');
-		
-				actionForm.find("input[name='pagenum']")
-					.val($(this).attr("href"));
-				actionForm.submit();
-			});
-		
-		$(".move").on("click",
-			function (e) {
-		
-			var tr = $(this);
-			var td = tr.children();
-			var bno = "a" + td.eq(0).text();
-				e.preventDefault();
-				actionForm
-					.append("<input type='hidden' name='bno' value='"
-						+ $(this).attr("id")
-						+ "'>");
-				actionForm.attr("action", "/admin/board/postInfo");
-				actionForm.submit();
-			});
-				
-		var searchForm = $("#searchForm");
+		$(document)
+				.ready(
+						function() {
+							var actionForm = $("#actionForm");
 
-		$("#searchForm button").on(
-			"click",
-			function (e) {
+							$(".paginate_button a").on(
+									"click",
+									function(e) {
 
-				if (!searchForm.find("option:selected")
-					.val()) {
-					alert("검색종류를 선택하세요");
-					return false;
-				}
+										e.preventDefault();
 
-				if (!searchForm.find(
-					"input[name='keyword']").val()) {
-					alert("키워드를 입력하세요");
-					return false;
-				}
+										console.log('click');
 
-				searchForm.find("input[name='pageNum']")
-					.val("1");
-				e.preventDefault();
+										actionForm
+												.find("input[name='pagenum']")
+												.val($(this).attr("href"));
+										actionForm.submit();
+									});
 
-				searchForm.submit();
-			});
+							$(".move")
+									.on(
+											"click",
+											function(e) {
 
+												var tr = $(this);
+												var td = tr.children();
+												var bno = "a" + td.eq(0).text();
+												e.preventDefault();
+												actionForm
+														.append("<input type='hidden' name='bno' value='"
+																+ $(this).attr(
+																		"id")
+																+ "'>");
+												actionForm
+														.attr("action",
+																"/admin/board/postInfo");
+												actionForm.submit();
+											});
 
-		
-		});
+							var searchForm = $("#searchForm");
 
-</script>
+							$("#searchForm button")
+									.on(
+											"click",
+											function(e) {
+
+												if (!searchForm.find(
+														"option:selected")
+														.val()) {
+													alert("검색종류를 선택하세요");
+													return false;
+												}
+
+												if (!searchForm
+														.find(
+																"input[name='keyword']")
+														.val()) {
+													alert("키워드를 입력하세요");
+													return false;
+												}
+
+												searchForm
+														.find(
+																"input[name='pageNum']")
+														.val("1");
+												e.preventDefault();
+
+												searchForm.submit();
+											});
+
+						});
+	</script>
 </body>
 </html>
 

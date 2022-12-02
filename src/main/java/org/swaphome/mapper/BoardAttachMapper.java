@@ -10,5 +10,5 @@ public interface BoardAttachMapper {
 	
 	public void delete(String uuid);
 	
-	public List<BoardAttachVO> findByBno(Long bno);
+	public List<BoardAttachVO> findByBno(int bno);
 }

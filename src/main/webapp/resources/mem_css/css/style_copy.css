@@ -1,0 +1,34 @@
+#main {
+    padding-top:120px;
+   }
+   
+.panel,.list-group,.well {border-radius:1px;box-shadow:0 0 0;}
+.panel .panel-default {
+    border-color:#cccccc;
+   }
+
+.qna-list h1 small {
+    font-size:.4em
+}
+.qna-list .list {
+    list-style:none;
+    margin:0;
+    padding:0;
+    border-top:1px solid #dadada;
+    font-size:14px;
+}
+@media (max-width: 768px) {
+    .qna-list .list{ margin:0 -1em  }
+}
+.qna-list .list > li {
+    position:relative;
+    padding:1em;
+    padding-bottom: 0%;
+    padding-left:4em;
+    border-bottom:1px solid #0cc;
+}
+.qna-list .list .main .subject{display:block;font-size:1.2em;line-height:1.4em;}
+.qna-list .list .main .subject a{display:block;color:#000}
+.qna-list .list .auth-info{ color:#999;}
+.qna-list .list .count{position:absolute;left:0;top:.8em;width:4em;text-align:center;}
+.qna-list .list .count .point{position:relative;z-index:1;color:#aaa;font-size:2em;}

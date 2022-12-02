@@ -1,23 +1,43 @@
 /* kims CSS */
+.tm-social-link:hover .tm-social-icon.fa-school {
+	color: #006376;
+}
 
-.tm-social-link:hover .tm-social-icon.fa-school { color: #006376; }
-.tm-social-link:hover .tm-social-icon.fa-desktop { color: #006376; }
-.tm-social-link:hover .tm-social-icon.fa-graduation-cap { color: #006376; }
+.tm-social-link:hover .tm-social-icon.fa-desktop {
+	color: #006376;
+}
+
+.tm-social-link:hover .tm-social-icon.fa-graduation-cap {
+	color: #006376;
+}
 
 .select {
-    width: 120px; 
-    text-align: left;
-    padding-left: 10px;
-    border: 1px solid #0cc;
-    border-radius: 0px; 
-    -webkit-appearance: none; 
-    -moz-appearance: none;
-    appearance: none;
-    font-size: 15px;
-    }
-    
-    .select option {
-      background: #099;
-      color: #fff;
-      padding: 3px 0;
-    }
+	width: 120px;
+	text-align: left;
+	padding-left: 10px;
+	border: 1px solid #0cc;
+	border-radius: 0px;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	font-size: 15px;
+}
+
+.select option {
+	background: #099;
+	color: #fff;
+	padding: 3px 0;
+}
+
+.notice {
+	height: auto;
+	border: solid 4px #0cc;
+}
+
+.tm-btn-primary-lg {
+	padding: 8px 30px;
+}
+
+.hr-footer {
+	border-top: solid 3px #ccc;
+}

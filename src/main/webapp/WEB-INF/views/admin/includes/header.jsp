@@ -30,7 +30,7 @@
 					class="nav-link"> <i class="nav-icon fas fa-users"></i>
 						<p>회원 정보 관리</p>
 				</a></li>
-				<li class="nav-item"><a href="/admin/member/memberAllMessage"
+				<li class="nav-item"><a href="/admin/member/memberAllApply"
 					class="nav-link"> <i class="nav-icon far fa-envelope"></i>
 						<p>회원 소식</p>
 				</a></li>

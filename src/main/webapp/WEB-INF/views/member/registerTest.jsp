@@ -43,7 +43,7 @@ label {
 
 <body class="hold-transition sidebar-mini">
 	<div class="wrapper">
-		<%@ include file="./includes/header.jsp"%>
+		<%@ include file="../admin/includes/header.jsp"%>
 
 		<!-- Content Wrapper. Contains page content -->
 		<div class="content-wrapper">

@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.swaphome.domain.Criteria;
 import org.springframework.stereotype.Service;
+import org.swaphome.domain.BoardAttachVO;
 import org.swaphome.domain.BoardVO;
 
 @Service
@@ -20,4 +21,6 @@ public interface BoardService {
 	public List<BoardVO> getList(Criteria cri);
 	
 	public int getTotal(Criteria cri);
+	
+	public List<BoardAttachVO> getAttachList(int bno);
 }

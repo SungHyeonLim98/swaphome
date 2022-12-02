@@ -120,7 +120,8 @@
 	<!-- /.control-sidebar -->
 	</div>
 	<!-- /.content-wrapper -->
-	<footer class="main-footer no-print"> </footer>
+
+	<%@ include file="../includes/footer.jsp"%>
 
 	<!-- Control Sidebar -->
 	<aside class="control-sidebar control-sidebar-dark">
