@@ -14,6 +14,8 @@ public interface BoardService {
 	
 	public BoardVO get(int bno);
 	
+	public int getCount();
+	
 	public boolean modify(BoardVO board);
 	
 	public boolean remove(int bno);

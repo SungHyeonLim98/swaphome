@@ -55,6 +55,11 @@ public class BoardServiceImpl implements BoardService {
 	}
 	
 	@Override
+	public int getCount() {
+		return mapper.getCount();
+	}
+	
+	@Override
 	public boolean modify(BoardVO board) {
 		
 		log.info("modify....." + board);

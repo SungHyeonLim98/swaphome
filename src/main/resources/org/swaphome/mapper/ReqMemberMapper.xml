@@ -4,7 +4,7 @@
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="org.swaphome.mapper.ReqMemberMapper">
 
-<sql id="criteria">
+	<sql id="criteria">
 		<trim prefix="(" suffix=") AND " prefixOverrides="OR">
 			<foreach item='type' collection="typeArr">
 				<trim prefix="OR">
@@ -26,20 +26,26 @@
 			</foreach>
 		</trim>
 	</sql>
+
+	<select id="getCount" resultType="int">
+		select count(*) from requestmembers
+	</select>
 	
-<select id="getList" resultType="org.swaphome.domain.ReqMemberVO">
+	<select id="getList"
+		resultType="org.swaphome.domain.ReqMemberVO">
 	<![CDATA[
 		select * from requestmembers
 	]]>
-</select>
+	</select>
 
-<select id="read" resultType="org.swaphome.domain.ReqMemberVO">
+	<select id="read" resultType="org.swaphome.domain.ReqMemberVO">
 	<![CDATA[
 		select * from requestmembers where gnum = #{gnum}
 	]]>
-</select>
+	</select>
 
-<select id="getListWithPaging" resultType="org.swaphome.domain.ReqMemberVO">
+	<select id="getListWithPaging"
+		resultType="org.swaphome.domain.ReqMemberVO">
 	<![CDATA[
 		select 
 			name, gnum, grade, cls, regnum, phone, address, academic, myself, motive, action, advantages, regdate
@@ -51,31 +57,31 @@
         		requestmembers
     		where 
 	]]>
-	<include refid="criteria"></include> 
+		<include refid="criteria"></include> 
       
 	<![CDATA[    
 	rownum <= #{pagenum} * #{amount}
 	)
 	where rn > (#{pagenum} -1) * #{amount}   
 	]]>
-</select>
+	</select>
 
-<select id="getTotalCount" resultType="int">
+	<select id="getTotalCount" resultType="int">
 	<![CDATA[
 		select count(*) from requestmembers
 	]]>
-</select>
+	</select>
 
-<delete id="delete">
-	delete from requestmembers where gnum = #{gnum}
-</delete>
+	<delete id="delete">
+		delete from requestmembers where gnum = #{gnum}
+	</delete>
 
-<insert id="insert">
-	insert into requestmembers(name, gnum, grade, cls, regNum, 
+	<insert id="insert">
+		insert into requestmembers(name, gnum, grade, cls, regNum,
 		phone, address, academic, myself, motive, action, advantages)
-	values (#{name}, #{gnum}, #{grade}, #{cls}, 
-		#{regnum}, #{phone}, #{address}, #{academic}, #{myself}, #{motive}, 
+		values (#{name}, #{gnum}, #{grade}, #{cls},
+		#{regnum}, #{phone}, #{address}, #{academic}, #{myself}, #{motive},
 		#{action}, #{advantages})
-</insert>
+	</insert>
 
 </mapper>

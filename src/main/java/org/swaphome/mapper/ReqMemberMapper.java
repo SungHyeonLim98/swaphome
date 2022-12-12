@@ -13,6 +13,8 @@ public void insert(ReqMemberMapper member);
 	public List<ReqMemberVO> getList();
 	
 	public List<ReqMemberVO> getListWithPaging(Criteria cri);
+	
+	public int getCount();
 
 	public void insert(ReqMemberVO member);
 	

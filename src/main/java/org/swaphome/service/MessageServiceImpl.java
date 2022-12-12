@@ -47,6 +47,11 @@ public class MessageServiceImpl implements MessageService {
 	}
 	
 	@Override
+	public int getCount() {
+		return mapper.getCount();
+	}
+	
+	@Override
 	public List<MessageVO> getList(Criteria cri) {
 		
 		log.info("getList.....");

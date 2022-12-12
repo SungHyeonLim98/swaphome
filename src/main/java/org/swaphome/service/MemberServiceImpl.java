@@ -39,6 +39,11 @@ public class MemberServiceImpl implements MemberService {
 	}
 	
 	@Override
+	public int getCount() {
+		return mapper.getCount();
+	}
+	
+	@Override
 	public boolean modify(MemberVO member) {
 		
 		log.info("modify....." + member);

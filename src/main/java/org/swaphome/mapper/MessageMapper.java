@@ -11,6 +11,8 @@ public interface MessageMapper {
 	public List<MessageVO> getList();
 	
 	public List<MessageVO> getListWithPaging(Criteria cri);
+	
+	public int getCount();
 
 	public void insert(MessageVO message);
 	

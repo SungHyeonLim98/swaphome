@@ -24,6 +24,10 @@
 		</trim>
 	</sql>
 
+	<select id="getCount" resultType="int">
+		select count(*) from board
+	</select>
+	
 	<select id="getList" resultType="org.swaphome.domain.BoardVO">
 	<![CDATA[
 		select * from board

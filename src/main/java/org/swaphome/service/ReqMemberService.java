@@ -14,6 +14,8 @@ public interface ReqMemberService {
 	
 	public ReqMemberVO get(int gNum);
 	
+	public int getCount();
+	
 	public boolean remove(int gNum);
 	
 	public List<ReqMemberVO> getList(Criteria cri);

@@ -8,7 +8,7 @@
 
 		<c:if test="${pageMaker.prev}">
 			<li class="paginate_button previous"><a
-				href="${pageMaker.startPage -1}">Previous</a></li>
+				href="${pageMaker.startPage -1}">이전</a></li>
 		</c:if>
 
 		<c:forEach var="num" begin="${pageMaker.startPage}"
@@ -19,7 +19,7 @@
 		</c:forEach>
 
 		<c:if test="${pageMaker.next}">
-			<li class="paginate_button next"><a href="pageMaker.endPage+1">Next</a></li>
+			<li class="paginate_button next"><a href="pageMaker.endPage+1">다음</a></li>
 		</c:if>
 
 	</ul>

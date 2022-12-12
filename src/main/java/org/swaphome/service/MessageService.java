@@ -14,6 +14,8 @@ public interface MessageService {
 	
 	public MessageVO get(int pNum);
 	
+	public int getCount();
+	
 	public boolean remove(int pNum);
 	
 	public List<MessageVO> getList(Criteria cri);
