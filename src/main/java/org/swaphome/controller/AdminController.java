@@ -41,6 +41,35 @@ public class AdminController {
 		log.info("LoginPage");
 
 	}
+	
+	// MainPage
+	@GetMapping("/adminMainPage") 
+		public void adminMainPage(Criteria cri, Model model) {
+		
+		log.info("AdminMainPage");
+
+		cri = new Criteria(1, 5);
+		
+		int mbTotal = service.getTotal(cri);
+		int msTotal = msService.getTotal(cri);
+		int boTotal = boService.getTotal(cri);
+		int reqTotal = reqService.getTotal(cri);
+		
+		model.addAttribute("mbPageMaker", new PageDTO(cri, mbTotal));
+		model.addAttribute("msPageMaker", new PageDTO(cri, msTotal));
+		model.addAttribute("boPageMaker", new PageDTO(cri, boTotal));
+		model.addAttribute("reqPageMaker", new PageDTO(cri, reqTotal));
+		
+		model.addAttribute("mbList", service.getList(cri));
+		model.addAttribute("msList", msService.getList(cri));
+		model.addAttribute("boList", boService.getList(cri));
+		model.addAttribute("reqList", reqService.getList(cri));
+		
+		model.addAttribute("mbCount", service.getCount());
+		model.addAttribute("msCount", msService.getCount());
+		model.addAttribute("boCount", boService.getCount());
+		model.addAttribute("reqCount", reqService.getCount());
+	}
 
 	// Member..
 	@GetMapping("/member/memberAllApply")

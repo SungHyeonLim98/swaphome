@@ -146,7 +146,7 @@
 
 									</div>
 									<!-- /.mailbox-controls -->
-									<div class="mailbox-read-message" name="UserMessageTb">
+									<div class="mailbox-read-message">
 										<p>Message name</p>
 
 									</div>

@@ -15,7 +15,7 @@
 <!-- Main Sidebar Container -->
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
 	<!-- Brand Logo -->
-	<a href="#" class="brand-link text-center"> <span
+	<a href="/admin/adminMainPage" class="brand-link text-center"> <span
 		class="brand-text font-weight-light"><b>S.W.A.P Home </b>-Admin</span>
 	</a>
 	<!-- Sidebar -->
@@ -44,7 +44,7 @@
 						<p>일정 관리</p>
 				</a></li>
 				<hr>
-				<li class="nav-item"><a href="#" class="nav-link"> <i
+				<li class="nav-item"><a href="/member/board/activityBoard" class="nav-link"> <i
 						class="nav-icon fas fa-times fa-x"></i>
 						<p>사용자 페이지</p>
 				</a></li>

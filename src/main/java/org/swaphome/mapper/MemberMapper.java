@@ -11,6 +11,8 @@ public interface MemberMapper {
 	
 	public List<MemberVO> getListWithPaging(Criteria cri);
 	
+	public int getCount();
+	
 	public void insert(MemberVO member);
 	
 	public void insertSelectKey(MemberVO member);

@@ -14,6 +14,8 @@ public interface MemberService {
 	
 	public MemberVO get(int mNum);
 	
+	public int getCount();
+	
 	public boolean modify(MemberVO member);
 	
 	public boolean remove(int mNum);

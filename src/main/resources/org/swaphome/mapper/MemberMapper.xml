@@ -32,6 +32,10 @@
 		select * from members
 	]]>
 	</select>
+	
+	<select id="getCount" resultType="int">
+		select count(*) from members
+	</select>
 
 	<select id="getListWithPaging" resultType="org.swaphome.domain.MemberVO">
 	<![CDATA[

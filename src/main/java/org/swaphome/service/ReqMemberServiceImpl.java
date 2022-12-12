@@ -39,6 +39,11 @@ public class ReqMemberServiceImpl implements ReqMemberService {
 	}
 	
 	@Override
+	public int getCount() {
+		return mapper.getCount();
+	}
+	
+	@Override
 	public boolean remove(int gNum) {
 		
 		log.info("remove...." + gNum);

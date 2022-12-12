@@ -27,6 +27,10 @@
 		</trim>
 	</sql>
 
+	<select id="getCount" resultType="int">
+		select count(*) from messages
+	</select>
+	
 	<select id="getList" resultType="org.swaphome.domain.MessageVO">
 	<![CDATA[
 		select * from messages
@@ -72,7 +76,7 @@
 	</delete>
 
 	<insert id="insert">
-		insert into members(pnum, gnum, title, contents, name)
+		insert into messages(pnum, gnum, title, contents, name)
 		values (seq_message.nextval, #{gnum}, #{title}, #{contents}, #{name})
 	</insert>
 
