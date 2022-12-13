@@ -76,8 +76,8 @@
 	</delete>
 
 	<insert id="insert">
-		insert into messages(pnum, gnum, title, contents, name)
-		values (seq_message.nextval, #{gnum}, #{title}, #{contents}, #{name})
+		insert into messages(pnum, gnum, title, contents, name, cls, grade)
+		values (seq_message.nextval, #{gnum}, #{title}, #{contents}, #{name}, #{cls}, #{grade})
 	</insert>
 
 </mapper>

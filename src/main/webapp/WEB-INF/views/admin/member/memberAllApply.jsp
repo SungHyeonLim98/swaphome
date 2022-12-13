@@ -252,7 +252,7 @@
 						function() {
 							var actionForm = $("#actionForm");
 
-							$(".paginate_button a").on(
+							$(".page-item a").on(
 									"click",
 									function(e) {
 

@@ -16,6 +16,8 @@ public interface MemberService {
 	
 	public int getCount();
 	
+	public int getGradeCount(int grade);
+	
 	public boolean modify(MemberVO member);
 	
 	public boolean remove(int mNum);

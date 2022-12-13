@@ -8,7 +8,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import org.swaphome.domain.MessageVO;
 import org.swaphome.domain.ReqMemberVO;
+import org.swaphome.service.MessageService;
 import org.swaphome.service.ReqMemberService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -23,6 +25,9 @@ public class MemberController {
    
    @Setter(onMethod_ = { @Autowired })
    private ReqMemberService service;
+   
+   @Setter(onMethod_ = { @Autowired })
+   private MessageService msService;
    
    @GetMapping("/registerTest")
    public String login() {
@@ -79,7 +84,7 @@ public class MemberController {
    }
    
    // CRUD
-   @PostMapping("/member/register")
+   @PostMapping("/register")
    public String register(ReqMemberVO member, RedirectAttributes rttr) {
       
       log.info("register: " + member);
@@ -89,4 +94,16 @@ public class MemberController {
       
       return "redirect:/admin/member/memberAllApply";
    }
+   
+   @PostMapping("/messageRegister")
+	public String meessageRegister(MessageVO message, RedirectAttributes rttr) {
+		
+		log.info("messageRegister: " + message);
+		
+		msService.register(message);
+		
+		rttr.addFlashAttribute("result", message.getPnum());
+		
+		return "redirect:/member/board/activityBoard";
+	}
 }

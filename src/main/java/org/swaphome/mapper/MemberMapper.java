@@ -13,6 +13,8 @@ public interface MemberMapper {
 	
 	public int getCount();
 	
+	public int getGradeCount(int grade);
+	
 	public void insert(MemberVO member);
 	
 	public void insertSelectKey(MemberVO member);

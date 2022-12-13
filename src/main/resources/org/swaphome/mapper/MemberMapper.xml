@@ -37,6 +37,10 @@
 		select count(*) from members
 	</select>
 
+	<select id="getGradeCount" resultType="int">
+		select count(*) from members where grade = #{grade}
+	</select>
+	
 	<select id="getListWithPaging" resultType="org.swaphome.domain.MemberVO">
 	<![CDATA[
 		select 

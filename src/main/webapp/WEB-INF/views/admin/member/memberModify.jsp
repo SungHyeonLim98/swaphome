@@ -69,21 +69,18 @@ label {
 				<!-- /.container-fluid -->
 			</section>
 			<form role="form" action="/admin/modify" method="post">
+				<input type="hidden" value=<c:out value="${member.mnum}" />
+					name="mnum"> <input type="hidden"
+					value=<c:out value="${cri.pagenum}" /> name="pagenum"> <input
+					type="hidden" value=<c:out value="${cri.amount}" /> name="amount">
+				<input type="hidden" value=<c:out value="${cri.type}" /> name="type">
+				<input type="hidden" value=<c:out value="${cri.keyword}" />
+					name="keyword">
 				<div class="card-body">
 					<table id="example2"
 						class="table table-bordered table-striped text-center">
 						<tbody>
 							<tr>
-								<input type="hidden" value=<c:out value="${member.mnum}" />
-									name="mnum">
-								<input type="hidden" value=<c:out value="${cri.pagenum}" />
-									name="pagenum">
-								<input type="hidden" value=<c:out value="${cri.amount}" />
-									name="amount">
-								<input type="hidden" value=<c:out value="${cri.type}" />
-									name="type">
-								<input type="hidden" value=<c:out value="${cri.keyword}" />
-									name="keyword">
 								<td><b>이름</b></td>
 								<td><input type="text"
 									value=<c:out value="${member.name}" /> name="name"
@@ -93,7 +90,6 @@ label {
 									value=<c:out value="${member.gnum}" /> name="gnum"
 									class="form-control-sm"></td>
 								<td><b>학년</b></td>
-								<from>
 								<td><select name="grade" class="from-control">
 										<option <c:if test="${member.grade == 1}">selected</c:if>>1</option>
 										<option <c:if test="${member.grade == 2}">selected</c:if>>2</option>
@@ -107,7 +103,6 @@ label {
 										<option <c:if test="${member.cls == 'C'}">selected</c:if>>C</option>
 										<option <c:if test="${member.cls == 'D'}">selected</c:if>>D</option>
 								</select></td>
-								</from>
 							</tr>
 							<tr>
 								<td><b>주민번호</b></td>
