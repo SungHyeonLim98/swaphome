@@ -223,7 +223,8 @@
 									<div class="direct-chat-messages">
 										<!-- Message. Default to the left -->
 										<c:forEach items="${msList}" var="message">
-											<div class="direct-chat-msg">
+											<div class="direct-chat-msg" 
+											OnClick="location.href='/admin/member/memberMessage?pnum=<c:out value="${message.pnum}"/>'" style="cursor:pointer;">
 												<div class="direct-chat-infos clearfix">
 													<span class="direct-chat-name float-left"><c:out value="${message.name}" /></span> <span
 														class="direct-chat-timestamp float-right"><c:out value="${message.regdate}" /></span>
@@ -248,18 +249,8 @@
 									<!-- /.direct-chat-pane -->
 								</div>
 								<!-- /.card-body -->
-								<div class="card-footer">
-									<form action="#" method="post">
-										<div class="input-group">
-											<input type="text" name="message" placeholder="답글 남기기...."
-												class="form-control"> <span
-												class="input-group-append">
-												<button type="button" class="btn btn-primary">Send</button>
-											</span>
-										</div>
-									</form>
-								</div>
-								<!-- /.card-footer-->
+								
+								
 							</div>
 							<!--/.direct-chat -->
 
@@ -601,7 +592,10 @@
 				datasets : [ {
 					label : "Population (millions)",
 					backgroundColor : [ "red", "green", "yellow", "blue" ],
-					data : [ 25, 15, 2, 2 ]
+					data : [ <c:out value="${grade1}"/>, 
+							<c:out value="${grade2}"/>, 
+							<c:out value="${grade3}"/>, 
+							<c:out value="${grade4}"/>]
 				} ]
 			},
 

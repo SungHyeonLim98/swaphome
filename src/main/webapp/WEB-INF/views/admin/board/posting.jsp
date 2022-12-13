@@ -51,9 +51,9 @@
 			<section class="content">
 				<div class="container-fluid">
 					<!-- /.col -->
+					<form role="form" action="/admin/boardRegister" method="post">
 					<div class="col-md-9">
-						<form role="form" action="/admin/boardRegister" method="post">
-							<div class="card card-primary card-outline">
+								<div class="card card-primary card-outline">
 								<!-- /.card-header -->
 								<div class="card-body">
 									<div class="form-group">

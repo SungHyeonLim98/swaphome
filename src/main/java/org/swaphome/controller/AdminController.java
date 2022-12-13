@@ -69,6 +69,11 @@ public class AdminController {
 		model.addAttribute("msCount", msService.getCount());
 		model.addAttribute("boCount", boService.getCount());
 		model.addAttribute("reqCount", reqService.getCount());
+		
+		model.addAttribute("grade1", service.getGradeCount(1));
+		model.addAttribute("grade2", service.getGradeCount(2));
+		model.addAttribute("grade3", service.getGradeCount(3));
+		model.addAttribute("grade4", service.getGradeCount(4));
 	}
 
 	// Member..

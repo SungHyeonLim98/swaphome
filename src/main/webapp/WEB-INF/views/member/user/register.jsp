@@ -31,115 +31,121 @@
 			<div class="col-12">
 				<h2 class="tm-color-primary tm-post-title tm-mb-60">가입신청서</h2>
 			</div>
-			<div class="row tm-row tm-mb-120">
-				<div class="col-lg-5 tm-contact-left">
-					<div class="form-group row mb-4">
-						<label for="name"
-							class="col-sm-3 col-form-label text-right tm-color-primary">이름</label>
-						<div class="col-sm-9">
-							<input type="text" class="form-control mr-0 ml-auto" id="name"
-								required>
+			<form role="form" action="/member/register" method="post">
+				<div class="row tm-row tm-mb-120">
+					<div class="col-lg-5 tm-contact-left">
+						<div class="form-group row mb-4">
+							<label for="name"
+								class="col-sm-3 col-form-label text-right tm-color-primary">이름</label>
+							<div class="col-sm-9">
+								<input type="text" class="form-control mr-0 ml-auto" name='name'
+									required>
+							</div>
+						</div>
+						<div class="form-group row mb-4">
+							<label for="hbun"
+								class="col-sm-3 col-form-label text-right tm-color-primary">학번</label>
+							<div class="col-sm-9">
+								<input type="text" class="form-control mr-0 ml-auto" name="gnum"
+									required>
+							</div>
+						</div>
+						<div class="form-group row mb-4">
+							<label for="pnum"
+								class="col-sm-3 col-form-label text-right tm-color-primary"><h6>전화번호</h6></label>
+							<div class="col-sm-9">
+								<input type="text" class="form-control mr-0 ml-auto" name="phone"
+									required>
+								<input type="hidden" class="form-control mr-0 ml-auto" name="academic" value='재학'
+									required>
+							</div>
+						</div>
+						<div class="form-group row mb-4">
+							<label for="grade"
+								class="col-sm-3 col-form-label text-right tm-color-primary">학년</label>
+							<div class="col-sm-9">
+								<select class="select" name='grade'>
+									<option value="selectGrade" hidden>---</option>
+									<option value=1>1학년</option>
+									<option value=2>2학년</option>
+									<option value=3>3학년</option>
+									<option value=4>4학년</option>
+								</select>
+							</div>
+						</div>
+						<div class="form-group row mb-4">
+							<label for="class"
+								class="col-sm-3 col-form-label text-right tm-color-primary">반</label>
+							<div class="col-sm-9">
+								<select class="select" name='cls'>
+									<option value="selectClass" hidden>---</option>
+									<option value="A">A반</option>
+									<option value="B">B반</option>
+									<option value="C">C반</option>
+									<option value="D">D반</option>
+								</select>
+							</div>
+						</div>
+						<div class="form-group row mb-4">
+							<label for="snum"
+								class="col-sm-3 col-form-label text-right tm-color-primary"><h6>주민번호</h6></label>
+							<div class="col-sm-9">
+								<input type="text" class="form-control mr-0 ml-auto" name="regnum"
+									required>
+							</div>
+						</div>
+						<div class="form-group row mb-4">
+							<label for="addr"
+								class="col-sm-3 col-form-label text-right tm-color-primary">주소</label>
+							<div class="col-sm-9">
+								<textarea class="form-control mr-0 ml-auto" name="address"
+									id="addr" rows="3" required></textarea>
+							</div>
 						</div>
 					</div>
-					<div class="form-group row mb-4">
-						<label for="hbun"
-							class="col-sm-3 col-form-label text-right tm-color-primary">학번</label>
-						<div class="col-sm-9">
-							<input type="text" class="form-control mr-0 ml-auto" id="hbun"
-								required>
+					<div class="col-lg-7 tm-contact-right">
+						<div class="form-group row mb-4">
+							<label for="intro"
+								class="col-sm-3 col-form-label text-right tm-color-primary">자기소개</label>
+							<div class="col-sm-9">
+								<textarea class="form-control mr-0 ml-auto" name="myself"
+									id="intro" rows="5" required></textarea>
+							</div>
 						</div>
-					</div>
-					<div class="form-group row mb-4">
-						<label for="pnum"
-							class="col-sm-3 col-form-label text-right tm-color-primary"><h6>전화번호</h6></label>
-						<div class="col-sm-9">
-							<input type="text" class="form-control mr-0 ml-auto" id="pnum"
-								required>
+						<div class="form-group row mb-4">
+							<label for="motive"
+								class="col-sm-3 col-form-label text-right tm-color-primary">지원동기</label>
+							<div class="col-sm-9">
+								<textarea class="form-control mr-0 ml-auto" name="motive"
+									id="motive" rows="5" required></textarea>
+							</div>
 						</div>
-					</div>
-					<div class="form-group row mb-4">
-						<label for="grade"
-							class="col-sm-3 col-form-label text-right tm-color-primary">학년</label>
-						<div class="col-sm-9">
-							<select class="select">
-								<option value="selectGrade" hidden>---</option>
-								<option value="first">1학년</option>
-								<option value="second">2학년</option>
-								<option value="third">3학년</option>
-							</select>
+						<div class="form-group row mb-4">
+							<label for="act"
+								class="col-sm-3 col-form-label text-right tm-color-primary">동아리에서
+								하고싶은 <br>활동
+							</label>
+							<div class="col-sm-9">
+								<textarea class="form-control mr-0 ml-auto" name="action"
+									rows="5" required></textarea>
+							</div>
 						</div>
-					</div>
-					<div class="form-group row mb-4">
-						<label for="class"
-							class="col-sm-3 col-form-label text-right tm-color-primary">반</label>
-						<div class="col-sm-9">
-							<select class="select">
-								<option value="selectClass" hidden>---</option>
-								<option value="aClass">A반</option>
-								<option value="bClass">B반</option>
-								<option value="cClass">C반</option>
-							</select>
-						</div>
-					</div>
-					<div class="form-group row mb-4">
-						<label for="snum"
-							class="col-sm-3 col-form-label text-right tm-color-primary"><h6>주민번호</h6></label>
-						<div class="col-sm-9">
-							<input type="text" class="form-control mr-0 ml-auto" id="snum"
-								required>
-						</div>
-					</div>
-					<div class="form-group row mb-4">
-						<label for="addr"
-							class="col-sm-3 col-form-label text-right tm-color-primary">주소</label>
-						<div class="col-sm-9">
-							<textarea class="form-control mr-0 ml-auto" name="addr" id="addr"
-								rows="3" required></textarea>
+						<div class="form-group row mb-4">
+							<label for="adventage"
+								class="col-sm-3 col-form-label text-right tm-color-primary">자신의
+								장점</label>
+							<div class="col-sm-9">
+								<textarea class="form-control mr-0 ml-auto" name="advantages"
+									rows="5" required></textarea>
+							</div>
 						</div>
 					</div>
 				</div>
-				<div class="col-lg-7 tm-contact-right">
-					<div class="form-group row mb-4">
-						<label for="intro"
-							class="col-sm-3 col-form-label text-right tm-color-primary">자기소개</label>
-						<div class="col-sm-9">
-							<textarea class="form-control mr-0 ml-auto" name="intro"
-								id="intro" rows="5" required></textarea>
-						</div>
-					</div>
-					<div class="form-group row mb-4">
-						<label for="motive"
-							class="col-sm-3 col-form-label text-right tm-color-primary">지원동기</label>
-						<div class="col-sm-9">
-							<textarea class="form-control mr-0 ml-auto" name="motive"
-								id="motive" rows="5" required></textarea>
-						</div>
-					</div>
-					<div class="form-group row mb-4">
-						<label for="act"
-							class="col-sm-3 col-form-label text-right tm-color-primary">동아리에서
-							하고싶은 <br>활동
-						</label>
-						<div class="col-sm-9">
-							<textarea class="form-control mr-0 ml-auto" name="act" id="act"
-								rows="5" required></textarea>
-						</div>
-					</div>
-					<div class="form-group row mb-4">
-						<label for="adventage"
-							class="col-sm-3 col-form-label text-right tm-color-primary">자신의
-							장점</label>
-						<div class="col-sm-9">
-							<textarea class="form-control mr-0 ml-auto" name="adventage"
-								id="adventage" rows="5" required></textarea>
-						</div>
-					</div>
-				</div>
+				<div class="tm-prev-next-wrapper text-center tm-mt-55">
+				<button type='submit' class="tm-btn tm-btn-primary tm-btn-small">전송</button>
+				<button onclick="location.href='/member/board/activityBoard'" class="tm-btn tm-btn-primary tm-btn-small">취소</button>
 			</div>
-			<div class="tm-prev-next-wrapper text-center tm-mt-55">
-				<button class="tm-btn tm-btn-primary tm-btn-small">전송</button>
-				<button class="tm-btn tm-btn-primary tm-btn-small">취소</button>
-			</div>
+			</form>
 			<%@ include file="../includes/footer.jsp"%>
 		</main>
 	</div>

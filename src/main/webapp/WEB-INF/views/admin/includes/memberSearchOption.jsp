@@ -5,9 +5,7 @@
 <%@ page session="false"%>
 <div class="input-group">
 	<select name='type'>
-		<option hidden selected value=""
-			<c:out value="${pageMaker.cri.type == null?'selected':''}" />>--</option>
-		<option value="N"
+		<option selected value="N"
 			<c:out value="${pageMaker.cri.type eq 'N'?'selected':''}" />>이름</option>
 		<option value="G"
 			<c:out value="${pageMaker.cri.type eq 'G'?'selected':''}" />>학번</option>

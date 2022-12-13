@@ -41,11 +41,11 @@
 			바로가기 : <br> 학교, 학과, 포털사이트를 갈 수 있어요
 		</p>
 		<div class="tm-mb-65">
-			<a href="#" class="tm-social-link"> <i
+			<a href="https://www.du.ac.kr/KR/index.do" class="tm-social-link" target='_blank'> <i
 				class="fas fa-school tm-social-icon"></i>
-			</a> <a href="#" class="tm-social-link"> <i
+			</a> <a href="https://dept.du.ac.kr/computer/Main.do" class="tm-social-link" target='_blank'> <i
 				class="fas fa-desktop tm-social-icon"></i>
-			</a> <a href="#" class="tm-social-link"> <i
+			</a> <a href="https://portal.du.ac.kr/login.jsp" class="tm-social-link" target='_blank'> <i
 				class="fas fa-graduation-cap tm-social-icon"></i>
 			</a>
 		</div>

@@ -44,6 +44,11 @@ public class MemberServiceImpl implements MemberService {
 	}
 	
 	@Override
+	public int getGradeCount(int grade) {
+		return mapper.getGradeCount(grade);
+	}
+	
+	@Override
 	public boolean modify(MemberVO member) {
 		
 		log.info("modify....." + member);

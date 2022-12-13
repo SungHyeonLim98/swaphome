@@ -31,26 +31,32 @@
 			<div class="col-12">
 				<h2 class="tm-color-primary tm-post-title tm-mb-60">쪽지</h2>
 			</div>
-			<div class="form-group row mb-4">
-				<label for="name"
-					class="col-sm-3 col-form-label text-right tm-color-primary">제목</label>
-				<div class="col-sm-7">
-					<input type="text" class="form-control" id="name" required>
+			<form role="form" action="/member/messageRegister" method="post">
+				<input type='hidden' name='gnum' value=2270024>
+				<input type='hidden' name='cls' value='A'>
+				<input type='hidden' name='grade' value=2>
+				<input type='hidden' name='name' value='임성현'>
+				<div class="form-group row mb-4">
+					<label for="name"
+						class="col-sm-3 col-form-label text-right tm-color-primary">제목</label>
+					<div class="col-sm-7">
+						<input type="text" class="form-control" name="title" required>
+					</div>
+					<div class="col-sm-2"></div>
 				</div>
-				<div class="col-sm-2"></div>
-			</div>
-			<div class="form-group row mb-5">
-				<label for="question"
-					class="col-sm-3 col-form-label text-right tm-color-primary">건의사항</label>
-				<div class="col-sm-7">
-					<textarea class="form-control mr-0 ml-auto" name="question"
-						id="question" rows="10" required></textarea>
+				<div class="form-group row mb-5">
+					<label for="question"
+						class="col-sm-3 col-form-label text-right tm-color-primary">건의사항</label>
+					<div class="col-sm-7">
+						<textarea class="form-control mr-0 ml-auto" name="contents"
+							id="question" rows="10" required></textarea>
+					</div>
+					<div class="col-sm-2"></div>
 				</div>
-				<div class="col-sm-2"></div>
-			</div>
-			<div class="text-center">
-				<button class="tm-btn tm-btn-primary tm-btn-small">전송</button>
-			</div>
+				<div class="text-center">
+					<button type='submit' class="tm-btn tm-btn-primary tm-btn-small">전송</button>
+				</div>
+			</form>
 			<%@ include file="../includes/footer.jsp"%>
 		</main>
 	</div>
