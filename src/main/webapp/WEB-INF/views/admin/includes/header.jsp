@@ -44,7 +44,7 @@
 						<p>일정 관리</p>
 				</a></li>
 				<hr>
-				<li class="nav-item"><a href="/member/board/activityBoard" class="nav-link" target='_blank'> <i
+				<li class="nav-item"><a href="/member/board/activityBoard" class="nav-link"> <i
 						class="nav-icon fas fa-times fa-x"></i>
 						<p>사용자 페이지</p>
 				</a></li>

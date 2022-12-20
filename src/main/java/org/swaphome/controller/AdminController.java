@@ -217,9 +217,9 @@ public class AdminController {
 		
 		log.info("register: " + board);
 		
-		//boService.register(board);
+		boService.register(board);
 
-		//rttr.addFlashAttribute("result", board.getBno());
+		rttr.addFlashAttribute("result", board.getBno());
 		
 		return "redirect:/admin/member/memberAllApply";
 	}

@@ -4,7 +4,7 @@
 <%@ page session="false" %>
 
 <div class='pull-right'>
-	<ul class="pagination justify-content-center">
+	<ul class="pagination justify-content-center mt-4">
 
 		<c:if test="${pageMaker.prev}">
 			<li class="page-item"

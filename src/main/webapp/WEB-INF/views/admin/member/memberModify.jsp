@@ -31,6 +31,7 @@ label {
 	margin-bottom: 10px;
 }
 </style>
+
 <!-- Google Font: Source Sans Pro -->
 <link rel="stylesheet"
 	href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -41,7 +42,7 @@ label {
 <link rel="stylesheet" href="/resources/dist/css/adminlte.min.css">
 </head>
 
-<body class="hold-transition sidebar-mini">
+<body class="hold-transition sidebar-mini" onload="PhoneModify();RegnumModify()">
 	<div class="wrapper">
 		<%@ include file="../includes/header.jsp"%>
 
@@ -83,12 +84,12 @@ label {
 							<tr>
 								<td><b>이름</b></td>
 								<td><input type="text"
-									value=<c:out value="${member.name}" /> name="name"
-									class="form-control-sm"></td>
+									value=<c:out value="${member.name}" /> name="name" maxlength="4" required
+									class="form-control-sm" onkeyup="this.value=this.value.replace(/[^-ㄱ-힣a-zA-Z]/g,'');"/></td>
 								<td><b>학번</b></td>
 								<td><input type="text"
-									value=<c:out value="${member.gnum}" /> name="gnum"
-									class="form-control-sm"></td>
+									value=<c:out value="${member.gnum}" /> name="gnum" maxlength="7" required
+									class="form-control-sm" onkeyup="this.value=this.value.replace(/[^-0-9]/g,'');"/></td>
 								<td><b>학년</b></td>
 								<td><select name="grade" class="from-control">
 										<option <c:if test="${member.grade == 1}">selected</c:if>>1</option>
@@ -106,18 +107,35 @@ label {
 							</tr>
 							<tr>
 								<td><b>주민번호</b></td>
-								<td><input type="text"
-									value=<c:out value="${member.regnum}" /> name="regnum"
-									class="form-control-sm"></td>
+								<td><input type="text" id="jumin1" name="jumin1"
+									style="width: 130px;" class="form-control-sm" minlength="1"
+									maxlength="6"
+									onkeyup="this.value=this.value.replace(/[^-0-9]/g,'');" /> - <input
+									type="text" id="jumin2" name="jumin2" style="width: 30px;"
+									class="form-control-sm" minlength="1" maxlength="1"
+									onkeyup="this.value=this.value.replace(/[^-0-9]/g,'');" /> <input
+									type="hidden" id="regnum" name="regnum"></td>
+									
 								<td><b>핸드폰</b></td>
-								<td><input type="text"
-									value=<c:out value="${member.phone}" /> name="phone"
-									class="form-control-sm"></td>
+								<td><input type="text" id="hand1" name="hand1"
+									style="width: 50px;" minlength="1" class="form-control-sm"
+									maxlength="3" value="" required
+									onkeyup="this.value=this.value.replace(/[^-0-9]/g,'');" /> - <input
+									type="text" id="hand2" name="hand2" style="width: 50px;"
+									minlength="1" class="form-control-sm" maxlength="4" value="" required
+									onkeyup="this.value=this.value.replace(/[^-0-9]/g,'');" /> - <input
+									type="text" id="hand3" name="hand3" style="width: 50px;"
+									minlength="1" class="form-control-sm" maxlength="4" value="" required
+									onkeyup="this.value=this.value.replace(/[^-0-9]/g,'');" /></td>
+								<input type="hidden" value=<c:out value="${member.phone}" />
+									id="phone" name="phone">
+								</td>
+
 							</tr>
 							<tr>
 								<td><b>주소</b></td>
 								<td colspan="3"><input type="text"
-									value=<c:out value="${member.regnum}" /> name="address"
+									value=<c:out value="${member.regnum}" /> name="address" maxlength="40"
 									class="form-control"></td>
 								<td name="memberSelectRecordTb"><b>학적</b></td>
 								<td colspan="3"><input type="radio"
@@ -143,9 +161,9 @@ label {
 							</td>
 						</tr>
 						<tr>
-							<td><textarea name="myself" rows="5" cols="70"
+							<td><textarea name="myself" rows="5" cols="70" maxlength="240" required
 									class="form-control"><c:out value="${member.myself}" /></textarea></td>
-							<td><textarea name="motive" rows="5" cols="70"
+							<td><textarea name="motive" rows="5" cols="70" maxlength="240" required
 									class="form-control" style="margin-left: 40px"><c:out
 										value="${member.motive}" /></textarea></td>
 						</tr>
@@ -158,9 +176,9 @@ label {
 							</td>
 						</tr>
 						<tr>
-							<td><textarea name="action" rows="5" cols="70"
+							<td><textarea name="action" rows="5" cols="70" maxlength="240" required
 									class="form-control"><c:out value="${member.action}" /></textarea></td>
-							<td><textarea name="advantages" rows="5" cols="70"
+							<td><textarea name="advantages" rows="5" cols="70" maxlength="240" required
 									class="form-control" style="margin-left: 40px"><c:out
 										value="${member.advantages}" /></textarea></td>
 						</tr>
@@ -190,6 +208,30 @@ label {
 		<!-- /.control-sidebar -->
 	</div>
 	<!-- ./wrapper -->
+	<script>
+		function RegnumModify(){
+	        var value = "${member.regnum}";
+	        
+	        var first1 = value.slice(0,6);
+	        var second1 = value.slice(7,8);
+	       
+	        $('input[name=jumin1]').attr('value',first1);
+	        $('input[name=jumin2]').attr('value',second1);
+	        
+
+	    }
+		function PhoneModify() {
+			var value = "${member.phone}";
+
+			var first = value.slice(0, 3);
+			var second = value.slice(4, 8);
+			var third = value.slice(9, 13);
+			$('input[name=hand1]').attr('value', first);
+			$('input[name=hand2]').attr('value', second);
+			$('input[name=hand3]').attr('value', third);
+
+		}
+	</script>
 
 </body>
 

@@ -85,6 +85,7 @@
 												<td class="mailbox">카테고리</td>
 												<td class="mailbox" style="text-align: center;"><b>게시번호</b></td>
 												<td class="mailbox" style="text-align: center;"><b>제목</b></td>
+												<td class="mailbox" style="text-align: center;">내용</td>
 												<td class="mailbox" style="text-align: center;">작성자</td>
 												<td class="mailbox" style="text-align: center;">작성날짜</td>
 											</tr>
@@ -95,6 +96,7 @@
 													<td><c:out value="${board.category}" /></td>
 													<td><c:out value="${board.bno}" /></td>
 													<td><c:out value="${board.title}" /></td>
+													<td><c:out value="${board.contents}" /></td>
 													<td><c:out value="${board.writer}" /></td>
 													<td><fmt:formatDate pattern="yyyy-MM-dd"
 															value="${board.updatedate}" /></td>
