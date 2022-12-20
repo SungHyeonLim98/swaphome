@@ -68,13 +68,15 @@
 													value='${board.updatedate}' /></span>
 										</h6>
 									</div>
-									<c:out value='${board.contents}' />
+									<div id='contents'>
+										
+									</div>
 									<!-- /.mailbox-read-info -->
 									<div class="mailbox-controls with-border text-center">
 
 									</div>
 									<!-- /.mailbox-controls -->
-									<div class="mailbox-read-message" name="UserMessageTb">
+									<div class="mailbox-read-message">
 										<p>Message name</p>
 
 									</div>
@@ -120,7 +122,16 @@
 		<!-- /.control-sidebar -->
 	</div>
 	<!-- ./wrapper -->
-
+	<script>
+		var tmpStr = "<c:out value="${board.contents}" />";
+		tmpStr = tmpStr.replaceAll("&lt;", "<");
+		tmpStr = tmpStr.replaceAll("&gt;", ">");
+		tmpStr = tmpStr.replaceAll("&amp;lt;", "<");
+		tmpStr = tmpStr.replaceAll("&amp;gt;", ">");
+		tmpStr = tmpStr.replaceAll("&amp;nbsp;", " ");
+		tmpStr = tmpStr.replaceAll("&amp;amp;", "&");
+		document.getElementById("contents").innerHTML = tmpStr;
+	</script>
 </body>
 
 </html>
